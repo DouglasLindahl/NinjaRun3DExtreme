@@ -23,6 +23,7 @@ public class HazzardDisappearingBlock : MonoBehaviour
     public float explosionForce;
     public float explosionUpward;
     public GameObject particleHolder;
+  
     
     void Awake()
     {
@@ -34,7 +35,7 @@ public class HazzardDisappearingBlock : MonoBehaviour
 
     void Start()
     {
- 
+       
         startDestruction = false;
         Debug.Log(cubesInRow);
         cubesPivotDistance = cubeSize * cubesInRow / 2;
@@ -50,8 +51,8 @@ public class HazzardDisappearingBlock : MonoBehaviour
         } 
         if(changeColor == true)
         {
-            float t = Time.time/(ChargesUntilDestroy*time);
-            GetComponent<Renderer>().material.color = Color.Lerp(startColor, endColor, t);
+            EmissionColor();
+            ChangeColor();
         }
     }
     void OnCollisionEnter(Collision other)
@@ -133,6 +134,24 @@ public class HazzardDisappearingBlock : MonoBehaviour
         
     }
    
+    void ChangeColor()
+    {
+        float t = Time.time / (ChargesUntilDestroy * time);
+        GetComponent<Renderer>().material.color = Color.Lerp(startColor, endColor, t);
+      
+    }
+  /*  void EmissionColor()
+    {
+        float emissionTime = 0.8f;
+        gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+        float t = Time.time / emissionTime;
+        GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.Lerp(endColor, startColor, emissionTime)); 
+        if(t > emissionTime)
+        {
+            gameObject.GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+        }
+
+    }*/
 }
 
  

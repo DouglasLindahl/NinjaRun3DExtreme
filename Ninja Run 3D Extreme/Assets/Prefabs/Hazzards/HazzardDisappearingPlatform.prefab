@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1415422046065728461}
   - component: {fileID: 1415422046065728460}
   - component: {fileID: 1415422046065728499}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49582623a0067a46a6546602a1e2ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 2
+  time: 2.5
   ChargesUntilDestroy: 1
   speed: 0
   startColor: {r: 0.9433962, g: 0.9211463, b: 0.9211463, a: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1415422046405728668}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ParticleHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1415422047671785262}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HazzardDisappearingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

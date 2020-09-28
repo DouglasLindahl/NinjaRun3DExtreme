@@ -13,12 +13,11 @@ public class HazzardDisappearingBlock : MonoBehaviour
     public float speed;
     public Color startColor;
     public Color endColor;
-    float ColorTransisitionTime;
-    float starTime;
+
     
     float cubeSize = 0.2f;
     int cubesInRow = 5;
-    float cubesPivotDistance;
+   float cubesPivotDistance;
     Vector3 cubesPivot;
     public float explosionRadius;
     public float explosionForce;
@@ -29,22 +28,22 @@ public class HazzardDisappearingBlock : MonoBehaviour
         canReduceCharge = true;
         startDestruction = false;
         GetComponent<Renderer>().material.color = startColor;
-        starTime = Time.time;
+      
     }
 
     void Start()
     {
+ 
+        startDestruction = false;
         Debug.Log(cubesInRow);
         cubesPivotDistance = cubeSize * cubesInRow / 2;
         cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
-        explosionForce = 10.0f;
-        explosionRadius = 4.0f;
-        explosionUpward = 0.4f;
+   
     }
 
     void Update()
     {
-        if(startDestruction = true && canReduceCharge == true)
+        if(startDestruction == true && canReduceCharge == true)
         {
             destroyBlock();
         } 
@@ -56,7 +55,6 @@ public class HazzardDisappearingBlock : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        startDestruction = true;
         if (other.gameObject.tag == "Player")
         {
             startDestruction = true;
@@ -65,8 +63,12 @@ public class HazzardDisappearingBlock : MonoBehaviour
 
     void destroyBlock()
     {
+       
+            Debug.Log(startDestruction);
             StartCoroutine(startToDestroy());
             changeColor = true;
+      
+           
             
     }
 
@@ -98,7 +100,6 @@ public class HazzardDisappearingBlock : MonoBehaviour
             {
                 for (int z = 0; z < cubesInRow; z++)
                 {
-                    Debug.Log(x + "" + z + "" + y);
                     CreatePiece(x, y, z);
                 }
             }
@@ -111,6 +112,7 @@ public class HazzardDisappearingBlock : MonoBehaviour
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             if(rb != null)
             {
+                Debug.Log(explosionForce);
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionUpward);
             }
         }
@@ -123,7 +125,9 @@ public class HazzardDisappearingBlock : MonoBehaviour
 
         piece.transform.position = transform.position +  new Vector3(cubeSize*x, cubeSize * y, cubeSize * z) - cubesPivot;
         piece.transform.localScale = new Vector3(cubeSize,cubeSize,cubeSize);
-        piece.AddComponent<Rigidbody>().mass = cubeSize;
+        piece.AddComponent<Rigidbody>();
+        piece.GetComponent<Rigidbody>().mass = cubeSize;
+        piece.AddComponent<HazzardParticleDestroyer>();
     }
    
 }

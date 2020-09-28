@@ -9,10 +9,37 @@ public class HazzardDisappearingBlock : MonoBehaviour
     private bool canReduceCharge;
     bool startDestruction;
 
+    bool changeColor;
+    public float speed;
+    public Color startColor;
+    public Color endColor;
+    float ColorTransisitionTime;
+    float starTime;
+    
+    float cubeSize = 0.2f;
+    int cubesInRow = 5;
+    float cubesPivotDistance;
+    Vector3 cubesPivot;
+    public float explosionRadius;
+    public float explosionForce;
+    public float explosionUpward;
+    
     void Awake()
     {
         canReduceCharge = true;
         startDestruction = false;
+        GetComponent<Renderer>().material.color = startColor;
+        starTime = Time.time;
+    }
+
+    void Start()
+    {
+        Debug.Log(cubesInRow);
+        cubesPivotDistance = cubeSize * cubesInRow / 2;
+        cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
+        explosionForce = 10.0f;
+        explosionRadius = 4.0f;
+        explosionUpward = 0.4f;
     }
 
     void Update()
@@ -21,6 +48,11 @@ public class HazzardDisappearingBlock : MonoBehaviour
         {
             destroyBlock();
         } 
+        if(changeColor == true)
+        {
+            float t = Time.time/(ChargesUntilDestroy*time);
+            GetComponent<Renderer>().material.color = Color.Lerp(startColor, endColor, t);
+        }
     }
     void OnCollisionEnter(Collision other)
     {
@@ -34,13 +66,15 @@ public class HazzardDisappearingBlock : MonoBehaviour
     void destroyBlock()
     {
             StartCoroutine(startToDestroy());
+            changeColor = true;
+            
     }
 
     IEnumerator startToDestroy()
     {
         if (ChargesUntilDestroy <= 0)
         {
-            Destroy(gameObject);
+            Explode();
         }
         canReduceCharge = false;
 
@@ -55,5 +89,46 @@ public class HazzardDisappearingBlock : MonoBehaviour
         }
     }
 
+    public void Explode()
+    {
+        gameObject.SetActive(false);
+        for (int x = 0; x < cubesInRow; x++)
+        {
+            for (int y = 0; y < cubesInRow; y++)
+            {
+                for (int z = 0; z < cubesInRow; z++)
+                {
+                    Debug.Log(x + "" + z + "" + y);
+                    CreatePiece(x, y, z);
+                }
+            }
+        }
+
+        Vector3 explosionPos = transform.position;
+        Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
+        foreach (Collider hit in colliders)
+        {
+            Rigidbody rb = hit.GetComponent<Rigidbody>();
+            if(rb != null)
+            {
+                rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionUpward);
+            }
+        }
+    }
+    void CreatePiece(int x, int y, int z)
+    {
+        GameObject piece;
+        piece = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        piece.GetComponent<Renderer>().material.color = endColor;
+
+        piece.transform.position = transform.position +  new Vector3(cubeSize*x, cubeSize * y, cubeSize * z) - cubesPivot;
+        piece.transform.localScale = new Vector3(cubeSize,cubeSize,cubeSize);
+        piece.AddComponent<Rigidbody>().mass = cubeSize;
+    }
    
 }
+
+ 
+
+   
+

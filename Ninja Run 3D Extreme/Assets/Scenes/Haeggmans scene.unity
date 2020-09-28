@@ -441,6 +441,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 1
   ChargesUntilDestroy: 2
+  speed: 0
+  startColor: {r: 0.9433962, g: 0.9211463, b: 0.9211463, a: 0}
+  endColor: {r: 1, g: 0.21226418, b: 0.21226418, a: 0}
+  explosionRadius: 5
+  explosionForce: 100
+  explosionUpward: 0.4
 --- !u!65 &880068576
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -22,6 +22,7 @@ public class HazzardDisappearingBlock : MonoBehaviour
     public float explosionRadius;
     public float explosionForce;
     public float explosionUpward;
+    public GameObject particleHolder;
     
     void Awake()
     {
@@ -123,11 +124,13 @@ public class HazzardDisappearingBlock : MonoBehaviour
         piece = GameObject.CreatePrimitive(PrimitiveType.Cube);
         piece.GetComponent<Renderer>().material.color = endColor;
 
+        piece.transform.parent = particleHolder.transform;
         piece.transform.position = transform.position +  new Vector3(cubeSize*x, cubeSize * y, cubeSize * z) - cubesPivot;
         piece.transform.localScale = new Vector3(cubeSize,cubeSize,cubeSize);
         piece.AddComponent<Rigidbody>();
         piece.GetComponent<Rigidbody>().mass = cubeSize;
         piece.AddComponent<HazzardParticleDestroyer>();
+        
     }
    
 }

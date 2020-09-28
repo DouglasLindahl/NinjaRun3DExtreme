@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
+    [Header("Menu")]
     bool menuOpen = false;
+    bool settingsOpen = false;
+    bool levelSelectorOpen = false;
     public GameObject menu;
+    public GameObject settings;
+    public GameObject levelSelector;
 
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
+        //Pauses the game if the menu is open
         if (menuOpen)
         {
             Time.timeScale = 0;
@@ -26,6 +28,26 @@ public class PauseMenu : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             OpenMenu();
+        }
+        OpenRightWindow();
+    }
+    void OpenRightWindow()
+    {
+        if(settingsOpen)
+        {
+            settings.SetActive(true);
+        }
+        else
+        {
+            settings.SetActive(false);
+        }
+        if(levelSelectorOpen)
+        {
+            levelSelector.SetActive(true);
+        }
+        else
+        {
+            levelSelector.SetActive(false);
         }
     }
     public void OpenMenu()
@@ -40,5 +62,15 @@ public class PauseMenu : MonoBehaviour
             menu.SetActive(true);
             menuOpen = true;
         }
+    }
+    public void OpenSettings()
+    {
+        settingsOpen = true;
+        levelSelectorOpen = false;
+    }
+    public void OpenLevelSelector()
+    {
+        levelSelectorOpen = true;
+        settingsOpen = false;
     }
 }

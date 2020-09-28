@@ -20,4 +20,8 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Start");
+    }
 }

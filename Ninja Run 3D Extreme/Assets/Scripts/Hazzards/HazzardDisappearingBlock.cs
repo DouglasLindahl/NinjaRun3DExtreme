@@ -9,10 +9,17 @@ public class HazzardDisappearingBlock : MonoBehaviour
     private bool canReduceCharge;
     bool startDestruction;
 
+    public float speed;
+    public Color startColor;
+    public Color endColor;
+    float ColorTransisitionTime;
+    float starTime;
+    
     void Awake()
     {
         canReduceCharge = true;
         startDestruction = false;
+        GetComponent<Renderer>().material.color = startColor;
     }
 
     void Update()
@@ -34,6 +41,8 @@ public class HazzardDisappearingBlock : MonoBehaviour
     void destroyBlock()
     {
             StartCoroutine(startToDestroy());
+            StartCoroutine(ChangeColor());
+            
     }
 
     IEnumerator startToDestroy()
@@ -54,6 +63,15 @@ public class HazzardDisappearingBlock : MonoBehaviour
             Debug.Log(ChargesUntilDestroy);
         }
     }
+    IEnumerator ChangeColor()
+    {
+        ColorTransisitionTime += Time.time / (ChargesUntilDestroy * time);
+        GetComponent<Renderer>().material.color = Color.Lerp(startColor, endColor, ColorTransisitionTime);
+        yield return null;
+    }
+}
+
+ 
 
    
-}
+

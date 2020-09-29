@@ -55,9 +55,9 @@ public class HazzardDisappearingBlock : MonoBehaviour
             ChangeColor();
         }
     }
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
             startDestruction = true;
         }
@@ -65,13 +65,9 @@ public class HazzardDisappearingBlock : MonoBehaviour
 
     void destroyBlock()
     {
-       
             Debug.Log(startDestruction);
             StartCoroutine(startToDestroy());
             changeColor = true;
-      
-           
-            
     }
 
     IEnumerator startToDestroy()

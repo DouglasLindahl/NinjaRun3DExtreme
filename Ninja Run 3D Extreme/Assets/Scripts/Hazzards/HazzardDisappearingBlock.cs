@@ -51,7 +51,7 @@ public class HazzardDisappearingBlock : MonoBehaviour
         } 
         if(changeColor == true)
         {
-            EmissionColor();
+         
             ChangeColor();
         }
     }

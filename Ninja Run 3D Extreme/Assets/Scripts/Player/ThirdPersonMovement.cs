@@ -15,6 +15,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public float speed = 6;
     public float gravity = -9.81f;
     public float jumpHeight = 3;
+    public float slideMultiplier = 1.7f;
 
     Vector3 velocity;
     bool isGrounded;
@@ -78,7 +79,7 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 transform.localScale = crouchScale;
 
-                Vector3 moveDirection = transform.TransformDirection(Vector3.forward * Time.deltaTime * (speed * 1.7f));
+                Vector3 moveDirection = transform.TransformDirection(Vector3.forward * Time.deltaTime * (speed * slideMultiplier));
                 controller.Move(moveDirection);
 
                 elapsedTime += Time.deltaTime;

@@ -142,7 +142,7 @@ public class HazzardDisappearingBlock : MonoBehaviour
     //Ändrar färg över tid när ChangeColor boolen är true
     void ChangeColor()
     {
-        float t = Time.time / (ChargesUntilDestroy * time);
+        float t = Time.deltaTime / (ChargesUntilDestroy * time);
         renderer.material.color = Color.Lerp(startColor, endColor, t);
     }
  

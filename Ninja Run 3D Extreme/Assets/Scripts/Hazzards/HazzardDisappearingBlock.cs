@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class HazzardDisappearingBlock : MonoBehaviour
 {
+    //Variabler som används när blocket förstörs
     public float time;
     public float ChargesUntilDestroy;
     private bool canReduceCharge;
     bool startDestruction;
 
+    //Variabler som används när objektet ändrar färg
     bool changeColor;
     public float speed;
     private Color startColor = Color.white;
     private Color endColor = Color.red;
     Renderer renderer;
   
+    //Variabler för minikub som skapas efter explosion
     float cubeSize = 0.2f;
     int cubesInRow = 5;
-   float cubesPivotDistance;
+    float cubesPivotDistance;
     Vector3 cubesPivot;
     public float explosionRadius;
     public float explosionForce;

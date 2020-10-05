@@ -15,7 +15,8 @@ public class HazzardDisappearingBlock : MonoBehaviour
     public float speed;
     private Color startColor = Color.white;
     private Color endColor = Color.red;
-    Renderer renderer;
+    private Renderer _renderer;
+    private MaterialPropertyBlock _propBlock;
   
     //Variabler för minikub som skapas efter explosion
     float cubeSize = 0.2f;
@@ -32,9 +33,10 @@ public class HazzardDisappearingBlock : MonoBehaviour
     {
         canReduceCharge = true;
         startDestruction = false;
-        renderer = GetComponent<Renderer>();
-        renderer.material = new Material(Shader.Find("Standard"));
-        renderer.material.color = startColor;
+        _propBlock = new MaterialPropertyBlock();
+        _renderer = GetComponent<Renderer>();
+        //_renderer.material = new Material(Shader.Find("Standard"));
+        //_renderer.material.color = startColor;
     }
 
     //Sätter variabler och komponenter lika med X
@@ -142,8 +144,11 @@ public class HazzardDisappearingBlock : MonoBehaviour
     //Ändrar färg över tid när ChangeColor boolen är true
     void ChangeColor()
     {
-        float t = Time.deltaTime / (ChargesUntilDestroy * time);
-        renderer.material.color = Color.Lerp(startColor, endColor, t);
+        float t = Time.time / (ChargesUntilDestroy * time);
+        _renderer.GetPropertyBlock(_propBlock);
+        _propBlock.SetColor("_Color", Color.Lerp(startColor, endColor, t));
+        _renderer.SetPropertyBlock(_propBlock);
+       // _renderer.material.color = Color.Lerp(startColor, endColor, t);
     }
  
 }

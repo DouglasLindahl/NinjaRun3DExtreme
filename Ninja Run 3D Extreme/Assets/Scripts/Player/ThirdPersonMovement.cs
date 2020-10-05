@@ -26,7 +26,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     //vectors för normala player skala och en för hur liten spelaren blir när man crouchar.
     public Vector3 playerScale;
-    public Vector3 crouchScale = new Vector3(1, 0.5f, 1);
+    private Vector3 crouchScale = new Vector3(1, 0.5f, 1);
 
     public bool lockMovement = false;
 

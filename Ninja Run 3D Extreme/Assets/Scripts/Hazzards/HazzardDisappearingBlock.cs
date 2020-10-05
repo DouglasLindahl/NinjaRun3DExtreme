@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,8 +11,11 @@ public class HazzardDisappearingBlock : MonoBehaviour
 
     bool changeColor;
     public float speed;
-    public Color startColor;
-    public Color endColor;
+    private Color startColor = Color.white;
+    private Color endColor = Color.red;
+    Renderer renderer;
+    bool createMaterial;
+
 
     
     float cubeSize = 0.2f;
@@ -23,24 +26,24 @@ public class HazzardDisappearingBlock : MonoBehaviour
     public float explosionForce;
     public float explosionUpward;
     public GameObject particleHolder;
+
   
     
     void Awake()
     {
         canReduceCharge = true;
         startDestruction = false;
-        GetComponent<Renderer>().material.color = startColor;
-      
+        renderer = GetComponent<Renderer>();
+        renderer.material.color = startColor;
     }
 
     void Start()
     {
-       
+        createMaterial = true;
         startDestruction = false;
         Debug.Log(cubesInRow);
         cubesPivotDistance = cubeSize * cubesInRow / 2;
         cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
-   
     }
 
     void Update()
@@ -132,9 +135,14 @@ public class HazzardDisappearingBlock : MonoBehaviour
    
     void ChangeColor()
     {
+        if(createMaterial == true)
+        {
+            renderer.material = new Material(Shader.Find("Standard"));
+            createMaterial = true;
+        }
         float t = Time.time / (ChargesUntilDestroy * time);
-        GetComponent<Renderer>().material.color = Color.Lerp(startColor, endColor, t);
-      
+        renderer.material.color = Color.Lerp(startColor, endColor, t);
+      ///////
     }
   /*  void EmissionColor()
     {

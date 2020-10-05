@@ -50,6 +50,11 @@ public class PauseMenu : MonoBehaviour
             levelSelector.SetActive(false);
         }
     }
+    public void ResumeGame()
+    {
+        menu.SetActive(false);
+        menuOpen = false;
+    }
     public void OpenMenu()
     {
         if (menuOpen)

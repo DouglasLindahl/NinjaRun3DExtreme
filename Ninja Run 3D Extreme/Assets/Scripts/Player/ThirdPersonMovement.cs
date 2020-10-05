@@ -9,25 +9,31 @@ using UnityEngine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
+    //sätter vars för controllern och kameran
     public CharacterController controller;
     public Transform cam;
 
+    //floats för spelarens speed, gravtitationskonstanten, jump height och sliding.
     public float speed = 6;
     public float gravity = -9.81f;
     public float jumpHeight = 3;
+    public float slideMultiplier = 1.7f;
 
     Vector3 velocity;
     bool isGrounded;
 
     public Transform playerBody;
 
+    //vectors för normala player skala och en för hur liten spelaren blir när man crouchar.
     public Vector3 playerScale;
-    public Vector3 crouchScale = new Vector3(1, 0.5f, 1);
+    private Vector3 crouchScale = new Vector3(1, 0.5f, 1);
 
     public bool lockMovement = false;
 
+    //Float för hur länge slide duration är
     public float duration = 1f;
 
+    //vars för vad ground är
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
@@ -78,7 +84,7 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 transform.localScale = crouchScale;
 
-                Vector3 moveDirection = transform.TransformDirection(Vector3.forward * Time.deltaTime * (speed * 1.7f));
+                Vector3 moveDirection = transform.TransformDirection(Vector3.forward * Time.deltaTime * (speed * slideMultiplier));
                 controller.Move(moveDirection);
 
                 elapsedTime += Time.deltaTime;

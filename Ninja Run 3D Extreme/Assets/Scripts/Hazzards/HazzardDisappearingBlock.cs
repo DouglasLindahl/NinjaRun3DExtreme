@@ -4,48 +4,51 @@ using UnityEngine;
 
 public class HazzardDisappearingBlock : MonoBehaviour
 {
+    //Variabler som används när blocket förstörs
     public float time;
     public float ChargesUntilDestroy;
     private bool canReduceCharge;
     bool startDestruction;
 
+    //Variabler som används när objektet ändrar färg
     bool changeColor;
     public float speed;
     private Color startColor = Color.white;
     private Color endColor = Color.red;
-    Renderer renderer;
-    bool createMaterial;
-
-
-    
+    private Renderer _renderer;
+    private MaterialPropertyBlock _propBlock;
+  
+    //Variabler för minikub som skapas efter explosion
     float cubeSize = 0.2f;
     int cubesInRow = 5;
-   float cubesPivotDistance;
+    float cubesPivotDistance;
     Vector3 cubesPivot;
     public float explosionRadius;
     public float explosionForce;
     public float explosionUpward;
     public GameObject particleHolder;
-
-  
     
+    //Sätter variabler och komponenter lika med X
     void Awake()
     {
         canReduceCharge = true;
         startDestruction = false;
-        renderer = GetComponent<Renderer>();
-        renderer.material.color = startColor;
+        _propBlock = new MaterialPropertyBlock();
+        _renderer = GetComponent<Renderer>();
+        //_renderer.material = new Material(Shader.Find("Standard"));
+        //_renderer.material.color = startColor;
     }
 
+    //Sätter variabler och komponenter lika med X
     void Start()
     {
-        createMaterial = true;
         startDestruction = false;
         Debug.Log(cubesInRow);
         cubesPivotDistance = cubeSize * cubesInRow / 2;
         cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
     }
 
+    //Kör funktioner enligt parametrar som getts en gång per frame
     void Update()
     {
         if(startDestruction == true && canReduceCharge == true)
@@ -54,10 +57,11 @@ public class HazzardDisappearingBlock : MonoBehaviour
         } 
         if(changeColor == true)
         {
-         
             ChangeColor();
         }
     }
+
+    //Tittar om spelaren touchat objektets collider och sätter i gång destroyBlock funktionen
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -66,6 +70,7 @@ public class HazzardDisappearingBlock : MonoBehaviour
         }
     }
 
+    //Förstör objektet inom en viss tid genom att starta "StarToDestroy" coroutinen.
     void destroyBlock()
     {
             Debug.Log(startDestruction);
@@ -73,6 +78,7 @@ public class HazzardDisappearingBlock : MonoBehaviour
             changeColor = true;
     }
 
+    //Förstör objektet efter en viss tid genom att trigga "Explode" funktionen
     IEnumerator startToDestroy()
     {
         if (ChargesUntilDestroy <= 0)
@@ -85,13 +91,13 @@ public class HazzardDisappearingBlock : MonoBehaviour
 
         if(ChargesUntilDestroy > 0)
         {
-            
             ChargesUntilDestroy--;
             canReduceCharge = true;
             Debug.Log(ChargesUntilDestroy);
         }
     }
 
+    //Förstör objektet och skapar x antal kuber relativt till objektets storlek för att simulera en explosion där objektet delas upp
     public void Explode()
     {
         gameObject.SetActive(false);
@@ -118,6 +124,8 @@ public class HazzardDisappearingBlock : MonoBehaviour
             }
         }
     }
+
+    //Skapar det objekt som "Explode" funktionen spawnar in
     void CreatePiece(int x, int y, int z)
     {
         GameObject piece;
@@ -133,29 +141,16 @@ public class HazzardDisappearingBlock : MonoBehaviour
         
     }
    
+    //Ändrar färg över tid när ChangeColor boolen är true
     void ChangeColor()
     {
-        if(createMaterial == true)
-        {
-            renderer.material = new Material(Shader.Find("Standard"));
-            createMaterial = true;
-        }
         float t = Time.time / (ChargesUntilDestroy * time);
-        renderer.material.color = Color.Lerp(startColor, endColor, t);
-      ///////
+        _renderer.GetPropertyBlock(_propBlock);
+        _propBlock.SetColor("_Color", Color.Lerp(startColor, endColor, t));
+        _renderer.SetPropertyBlock(_propBlock);
+       // _renderer.material.color = Color.Lerp(startColor, endColor, t);
     }
-  /*  void EmissionColor()
-    {
-        float emissionTime = 0.8f;
-        gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
-        float t = Time.time / emissionTime;
-        GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.Lerp(endColor, startColor, emissionTime)); 
-        if(t > emissionTime)
-        {
-            gameObject.GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
-        }
-
-    }*/
+ 
 }
 
  

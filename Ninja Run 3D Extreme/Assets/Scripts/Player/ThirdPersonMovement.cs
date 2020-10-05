@@ -15,8 +15,18 @@ public class ThirdPersonMovement : MonoBehaviour
     public float speed = 6;
     public float gravity = -9.81f;
     public float jumpHeight = 3;
+
     Vector3 velocity;
     bool isGrounded;
+
+    public Transform playerBody;
+
+    public Vector3 playerScale;
+    public Vector3 crouchScale = new Vector3(1, 0.5f, 1);
+
+    public bool lockMovement = false;
+
+    public float duration = 1f;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -25,30 +35,60 @@ public class ThirdPersonMovement : MonoBehaviour
     float turnSmoothVelocity;
     public float turnSmoothTime = 0.1f;
 
-    // Update is called once per frame
+    void Start()
+    {
+        playerScale = transform.localScale;
+    }
     void Update()
     {
-        //jump
+        //determines what ground is
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
+        //while standing on ground velocity is reduced
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
 
+        //if button for jump is pressed and player is standing on the ground, the players jumps
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
-        //gravity
+        //adds a constant gravitational downforce on the player
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-        //walk
+        
+        //if horizontal input keys are used the player moves and rotates to face to point of moving.
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        if (direction.magnitude >= 0.1f)
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            StartCoroutine(SlideTimer());
+            lockMovement = true;
+        }
+
+        IEnumerator SlideTimer()
+        {
+            float elapsedTime = 0f;
+
+            while (elapsedTime < duration && Input.GetKey(KeyCode.LeftControl))
+            {
+                transform.localScale = crouchScale;
+
+                Vector3 moveDirection = transform.TransformDirection(Vector3.forward * Time.deltaTime * (speed * 1.7f));
+                controller.Move(moveDirection);
+
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            transform.localScale = playerScale;
+            lockMovement = false;
+        }
+
+        if (direction.magnitude >= 0.1f && !lockMovement)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);

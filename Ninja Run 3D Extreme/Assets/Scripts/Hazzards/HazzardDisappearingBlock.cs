@@ -43,7 +43,6 @@ public class HazzardDisappearingBlock : MonoBehaviour
     void Start()
     {
         startDestruction = false;
-        Debug.Log(cubesInRow);
         cubesPivotDistance = cubeSize * cubesInRow / 2;
         cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
     }
@@ -73,7 +72,6 @@ public class HazzardDisappearingBlock : MonoBehaviour
     //Förstör objektet inom en viss tid genom att starta "StarToDestroy" coroutinen.
     void destroyBlock()
     {
-            Debug.Log(startDestruction);
             StartCoroutine(startToDestroy());
             changeColor = true;
     }
@@ -144,7 +142,7 @@ public class HazzardDisappearingBlock : MonoBehaviour
     //Ändrar färg över tid när ChangeColor boolen är true
     void ChangeColor()
     {
-        float t = Time.time / (ChargesUntilDestroy * time);
+        float t = Time.time * (ChargesUntilDestroy * time);
         _renderer.GetPropertyBlock(_propBlock);
         _propBlock.SetColor("_Color", Color.Lerp(startColor, endColor, t));
         _renderer.SetPropertyBlock(_propBlock);

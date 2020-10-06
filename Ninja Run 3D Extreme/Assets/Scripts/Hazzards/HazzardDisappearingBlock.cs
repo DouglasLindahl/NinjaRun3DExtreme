@@ -49,7 +49,6 @@ public class HazzardDisappearingBlock : MonoBehaviour
         explosionForce = Random.Range(90, 115);
         explosionUpward = Random.Range(0.4f, 0.7f);
         explosionRadius = Random.Range(4, 6);
-        Debug.Log(explosionForce);
     }
 
     //Kör funktioner enligt parametrar som getts en gång per frame

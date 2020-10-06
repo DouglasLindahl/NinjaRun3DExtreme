@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class HazzardParticleDestroyer : MonoBehaviour
 {
+    // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(destroyParticles());
+        StartCoroutine(DestroyParticle());
     }
 
-    IEnumerator destroyParticles()
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    IEnumerator DestroyParticle()
     {
         yield return new WaitForSeconds(5);
         Destroy(gameObject);

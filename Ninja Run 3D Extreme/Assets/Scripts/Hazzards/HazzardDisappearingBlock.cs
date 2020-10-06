@@ -5,44 +5,39 @@ using UnityEngine;
 public class HazzardDisappearingBlock : MonoBehaviour
 {
     //Variabler som används när blocket förstörs
+    [Header("Time variables")]
     public float time;
     public float ChargesUntilDestroy;
     private bool canReduceCharge;
-    bool startDestruction;
+    private bool startDestruction;
 
     //Variabler som används när objektet ändrar färg
-    bool changeColor;
-    public float speed;
+    private bool changeColor;
     private Color startColor = Color.white;
     private Color endColor = Color.red;
     private Renderer _renderer;
     private MaterialPropertyBlock _propBlock;
     private float t = 0;
     private float timeElapsed;
-    bool timeStarted = false;
-
-
+    private bool timeStarted = false;
 
     //Variabler för minikub som skapas efter explosion
-    float cubeSize = 0.2f;
-    int cubesInRow = 5;
-    float cubesPivotDistance;
+    private float cubeSize = 0.2f;
+    private int cubesInRow = 4;
+    private float cubesPivotDistance;
     Vector3 cubesPivot;
-    public float explosionRadius;
-    public float explosionForce;
-    public float explosionUpward;
+    private float explosionRadius;
+    private float explosionForce;
+    private float explosionUpward;
     public GameObject particleHolder;
     
     //Sätter variabler och komponenter lika med X
     void Awake()
     {
-        
         canReduceCharge = true;
         startDestruction = false;
         _propBlock = new MaterialPropertyBlock();
         _renderer = GetComponent<Renderer>();
-        //_renderer.material = new Material(Shader.Find("Standard"));
-        //_renderer.material.color = startColor;
     }
 
     //Sätter variabler och komponenter lika med X
@@ -51,6 +46,10 @@ public class HazzardDisappearingBlock : MonoBehaviour
         startDestruction = false;
         cubesPivotDistance = cubeSize * cubesInRow / 2;
         cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
+        explosionForce = Random.Range(90, 115);
+        explosionUpward = Random.Range(0.4f, 0.7f);
+        explosionRadius = Random.Range(4, 6);
+        Debug.Log(explosionForce);
     }
 
     //Kör funktioner enligt parametrar som getts en gång per frame
@@ -115,7 +114,6 @@ public class HazzardDisappearingBlock : MonoBehaviour
                 }
             }
         }
-
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
         foreach (Collider hit in colliders)
@@ -142,13 +140,12 @@ public class HazzardDisappearingBlock : MonoBehaviour
         piece.AddComponent<Rigidbody>();
         piece.GetComponent<Rigidbody>().mass = cubeSize;
         piece.AddComponent<HazzardParticleDestroyer>();
-        
+        piece.layer = 10;
     }
    
     //Ändrar färg över tid när ChangeColor boolen är true
     void ChangeColor()
     {
-        
         if (!timeStarted)
         {
             timeElapsed = Time.time;
@@ -156,14 +153,10 @@ public class HazzardDisappearingBlock : MonoBehaviour
         }
         float t =+ Time.time - timeElapsed;
 
-        Debug.Log(t);
-        
         _renderer.GetPropertyBlock(_propBlock);
         _propBlock.SetColor("_Color", Color.Lerp(startColor, endColor, t/(ChargesUntilDestroy*time)));
         _renderer.SetPropertyBlock(_propBlock);
-        // _renderer.material.color = Color.Lerp(startColor, endColor, t);
     }
- 
 }
 
  

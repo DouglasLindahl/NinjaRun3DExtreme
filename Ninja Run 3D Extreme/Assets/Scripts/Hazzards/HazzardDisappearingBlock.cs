@@ -95,7 +95,6 @@ public class HazzardDisappearingBlock : MonoBehaviour
         {
             ChargesUntilDestroy--;
             canReduceCharge = true;
-            Debug.Log(ChargesUntilDestroy);
         }
     }
 
@@ -120,7 +119,6 @@ public class HazzardDisappearingBlock : MonoBehaviour
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             if(rb != null)
             {
-                Debug.Log(explosionForce);
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionUpward);
             }
         }

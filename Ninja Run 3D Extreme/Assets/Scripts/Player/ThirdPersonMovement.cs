@@ -21,6 +21,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
+    float dashAmount;
 
     public Transform playerBody;
 
@@ -55,6 +56,10 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             velocity.y = -2f;
         }
+        if (isGrounded)
+        {
+            dashAmount = 1;
+        }
 
         //if button for jump is pressed and player is standing on the ground, the players jumps
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -70,10 +75,11 @@ public class ThirdPersonMovement : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl) && dashAmount == 1)
         {
             StartCoroutine(SlideTimer());
             lockMovement = true;
+            dashAmount--;
         }
 
         IEnumerator SlideTimer()

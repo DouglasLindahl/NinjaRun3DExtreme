@@ -30,7 +30,7 @@ public class HazzardDisappearingBlock : MonoBehaviour
     private float explosionForce;
     private float explosionUpward;
     public GameObject particleHolder;
-    
+    public int wow;
     //Sätter variabler och komponenter lika med X
     void Awake()
     {

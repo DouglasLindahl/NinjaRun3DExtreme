@@ -36,16 +36,26 @@ public class ThirdPersonMovement : MonoBehaviour
 
     //vars för vad ground är
     public Transform groundCheck;
-    public float groundDistance = 0.4f;
+    public float groundDistance = .5f;
     public LayerMask groundMask;
 
     float turnSmoothVelocity;
     public float turnSmoothTime = 0.1f;
 
+    public Collider colDetect;
+
     void Start()
     {
         playerScale = transform.localScale;
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Wall")
+        {
+            Debug.Log("Hello");
+        }
+    }
+
     void Update()
     {
         //determines what ground is

@@ -30,9 +30,11 @@ public class ThirdPersonMovement : MonoBehaviour
     private Vector3 crouchScale = new Vector3(1, 0.5f, 1);
 
     public bool lockMovement = false;
+    private bool canCheckGrounded;
 
     //Float för hur länge slide duration är
     public float duration = 1f;
+    float tempVelocity;
 
     //vars för vad ground är
     public Transform groundCheck;
@@ -52,7 +54,14 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (other.tag == "Wall")
         {
-            Debug.Log("Hello");
+            gravity = 0f;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Wall")
+        {
+            gravity = -9.81f;
         }
     }
 

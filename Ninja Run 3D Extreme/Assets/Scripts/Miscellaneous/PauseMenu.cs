@@ -16,7 +16,6 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Pauses the game if the menu is open
         if (menuOpen)
         {
             Time.timeScale = 0;
@@ -61,11 +60,14 @@ public class PauseMenu : MonoBehaviour
         {
             menu.SetActive(false);
             menuOpen = false;
+            levelSelectorOpen = false;
+            settingsOpen = false;
         }
         else
         {
             menu.SetActive(true);
             menuOpen = true;
+            settingsOpen = true;
         }
     }
     public void OpenSettings()

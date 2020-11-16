@@ -14,14 +14,14 @@ public class ThirdPersonMovement : MonoBehaviour
     public Transform cam;
 
     //floats för spelarens speed, gravtitationskonstanten, jump height och sliding.
-    public float speed = 6;
-    public float gravity = -9.81f;
+    public float speed;
+    float gravity = -20f;
     public float jumpHeight = 3;
-    public float slideMultiplier = 1.7f;
+    float slideMultiplier = 1.7f;
+    float dashAmount;
+    public float duration = 1f;
 
     Vector3 velocity;
-    bool isGrounded;
-    float dashAmount;
 
     public Transform playerBody;
 
@@ -29,12 +29,11 @@ public class ThirdPersonMovement : MonoBehaviour
     public Vector3 playerScale;
     private Vector3 crouchScale = new Vector3(1, 0.5f, 1);
 
-    public bool lockMovement = false;
-    private bool canCheckGrounded;
+    bool lockMovement = false;
+    bool canTempJump;
+    bool isGrounded;
 
     //Float för hur länge slide duration är
-    public float duration = 1f;
-    float tempVelocity;
 
     //vars för vad ground är
     public Transform groundCheck;
@@ -42,9 +41,10 @@ public class ThirdPersonMovement : MonoBehaviour
     public LayerMask groundMask;
 
     float turnSmoothVelocity;
-    public float turnSmoothTime = 0.1f;
+    float turnSmoothTime = 0.1f;
 
-    public Collider colDetect;
+    float speedIncreaseWallRun = 10f;
+    float tempGravity;
 
     void Start()
     {
@@ -54,14 +54,18 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (other.tag == "Wall")
         {
-            gravity = 0f;
+            tempGravity = gravity;
+            canTempJump = true;
+            gravity = -4;
+            speed += speedIncreaseWallRun;
         }
     }
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "Wall")
         {
-            gravity = -9.81f;
+            gravity = tempGravity;
+            speed -= speedIncreaseWallRun;
         }
     }
 
@@ -84,6 +88,11 @@ public class ThirdPersonMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+        }
+        if (Input.GetButtonDown("Jump") && canTempJump)
+        {
+            velocity.y = Mathf.Sqrt((jumpHeight/2) * -2 * tempGravity);
+            canTempJump = false;
         }
         //adds a constant gravitational downforce on the player
         velocity.y += gravity * Time.deltaTime;

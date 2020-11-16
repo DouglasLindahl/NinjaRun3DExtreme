@@ -91,7 +91,7 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump") && canTempJump)
         {
-            velocity.y = Mathf.Sqrt((jumpHeight/2) * -2 * tempGravity);
+            velocity.y = Mathf.Sqrt((jumpHeight/1.5f) * -2 * tempGravity);
             canTempJump = false;
         }
         //adds a constant gravitational downforce on the player

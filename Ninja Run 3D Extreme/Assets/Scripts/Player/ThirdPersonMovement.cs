@@ -19,7 +19,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public float jumpHeight = 3;
     float slideMultiplier = 1.7f;
     float dashAmount;
-    public float duration = 1f;
+    public float slideDuration = .5f;
 
     Vector3 velocity;
 
@@ -58,6 +58,10 @@ public class ThirdPersonMovement : MonoBehaviour
             canTempJump = true;
             gravity = -4;
             speed += speedIncreaseWallRun;
+        }
+        if (other.tag == "Ring")
+        {
+            speed += 5;
         }
     }
     void OnTriggerExit(Collider other)
@@ -114,7 +118,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             float elapsedTime = 0f;
 
-            while (elapsedTime < duration && Input.GetKey(KeyCode.LeftControl))
+            while (elapsedTime < slideDuration && Input.GetKey(KeyCode.LeftControl))
             {
                 transform.localScale = crouchScale;
 

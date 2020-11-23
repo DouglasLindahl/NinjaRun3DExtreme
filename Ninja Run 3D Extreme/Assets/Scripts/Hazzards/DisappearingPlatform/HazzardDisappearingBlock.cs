@@ -95,7 +95,7 @@ public class HazzardDisappearingBlock : MonoBehaviour
         {
             ChargesUntilDestroy--;
             canReduceCharge = true;
-            Debug.Log(ChargesUntilDestroy);
+            //Debug.Log(ChargesUntilDestroy);
         }
     }
 

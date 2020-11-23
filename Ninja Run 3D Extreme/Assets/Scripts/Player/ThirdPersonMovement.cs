@@ -16,13 +16,12 @@ public class ThirdPersonMovement : MonoBehaviour
 
     //floats för spelarens speed, gravtitationskonstanten, jump height och sliding.
     [Header("General Stats")]
-
     public float speed;
     public float jumpHeight = 3;
     public float slideDuration = .5f;
 
     [Header("Speed Boost Power-up")]
-    public float speedBoostDuration = 3f;
+    public static float speedBoostDuration = 3f;
     public float speedMultiplier = 1.5f;
 
     float gravity = -20f;
@@ -51,12 +50,16 @@ public class ThirdPersonMovement : MonoBehaviour
     float turnSmoothVelocity;
     float turnSmoothTime = 0.1f;
 
-    float speedIncreaseWallRun = 10f;
+    float speedIncreaseWallRun = 1.5f;
     float tempGravity;
     float tempSpeed;
+    float ifErrorSpeed;
+
+    static float boostDuration;
 
     void Start()
     {
+        ifErrorSpeed = speed;
         playerScale = transform.localScale;
     }
     void OnTriggerEnter(Collider other)
@@ -66,7 +69,8 @@ public class ThirdPersonMovement : MonoBehaviour
             tempGravity = gravity;
             canTempJump = true;
             gravity = -4;
-            speed += speedIncreaseWallRun;
+            dashAmount = 1;
+            speed *= speedIncreaseWallRun;
         }
         if (other.tag == "Ring")
         {
@@ -81,12 +85,17 @@ public class ThirdPersonMovement : MonoBehaviour
         if (other.tag == "Wall")
         {
             gravity = tempGravity;
-            speed -= speedIncreaseWallRun;
+            speed /= speedIncreaseWallRun;
+            dashAmount = 1;
         }
     }
 
     void Update()
     {
+        if (speed < ifErrorSpeed)
+        {
+            speed = ifErrorSpeed;
+        }
         //determines what ground is
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -149,11 +158,11 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         IEnumerator SpeedBoostTimer()
         {
-            float elapsedTime = 0f;
+            boostDuration = 0f;
 
-            while (elapsedTime < speedBoostDuration)
+            while (boostDuration < speedBoostDuration)
             {
-                elapsedTime += Time.deltaTime;
+                boostDuration += Time.deltaTime;
                 yield return null;
             }
             speed = tempSpeed;

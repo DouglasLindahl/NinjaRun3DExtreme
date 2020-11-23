@@ -10,41 +10,50 @@ using UnityEngine;
 public class ThirdPersonMovement : MonoBehaviour
 {
     //sätter vars för controllern och kameran
+    [Header("Character Controller / Camera")]
     public CharacterController controller;
     public Transform cam;
 
     //floats för spelarens speed, gravtitationskonstanten, jump height och sliding.
+    [Header("General Stats")]
+
     public float speed;
-    float gravity = -20f;
     public float jumpHeight = 3;
-    float slideMultiplier = 1.7f;
-    float dashAmount;
     public float slideDuration = .5f;
 
-    Vector3 velocity;
+    [Header("Speed Boost Power-up")]
+    public float speedBoostDuration = 3f;
+    public float speedMultiplier = 1.5f;
 
+    float gravity = -20f;
+    float slideMultiplier = 1.7f;
+    float dashAmount;
+
+    [Header("Player/Ground")]
     public Transform playerBody;
 
-    //vectors för normala player skala och en för hur liten spelaren blir när man crouchar.
-    public Vector3 playerScale;
+    Vector3 velocity;
+    Vector3 playerScale;
     private Vector3 crouchScale = new Vector3(1, 0.5f, 1);
 
     bool lockMovement = false;
     bool canTempJump;
     bool isGrounded;
+    bool triggerPowerup = false;
 
     //Float för hur länge slide duration är
 
     //vars för vad ground är
     public Transform groundCheck;
-    public float groundDistance = .5f;
     public LayerMask groundMask;
+    public float groundDistance = .25f;
 
     float turnSmoothVelocity;
     float turnSmoothTime = 0.1f;
 
     float speedIncreaseWallRun = 10f;
     float tempGravity;
+    float tempSpeed;
 
     void Start()
     {
@@ -61,7 +70,10 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         if (other.tag == "Ring")
         {
-            speed += 5;
+            tempSpeed = speed;
+            speed *= speedMultiplier;
+            Destroy(other.gameObject);
+            triggerPowerup = true;
         }
     }
     void OnTriggerExit(Collider other)
@@ -113,6 +125,10 @@ public class ThirdPersonMovement : MonoBehaviour
             lockMovement = true;
             dashAmount--;
         }
+        if (triggerPowerup)
+        {
+            StartCoroutine(SpeedBoostTimer());
+        }
 
         IEnumerator SlideTimer()
         {
@@ -130,6 +146,18 @@ public class ThirdPersonMovement : MonoBehaviour
             }
             transform.localScale = playerScale;
             lockMovement = false;
+        }
+        IEnumerator SpeedBoostTimer()
+        {
+            float elapsedTime = 0f;
+
+            while (elapsedTime < speedBoostDuration)
+            {
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            speed = tempSpeed;
+            triggerPowerup = false;
         }
 
         if (direction.magnitude >= 0.1f && !lockMovement)

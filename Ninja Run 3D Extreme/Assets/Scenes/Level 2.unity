@@ -1620,7 +1620,7 @@ GameObject:
   - component: {fileID: 627942933}
   - component: {fileID: 627942932}
   m_Layer: 0
-  m_Name: Support (Hazard) (1)
+  m_Name: Wallrunning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2947,12 +2947,12 @@ PrefabInstance:
     - target: {fileID: 9182683684461234871, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017859566
+      value: -0.00000004334608
       objectReference: {fileID: 0}
     - target: {fileID: 9182683684461234871, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000045044297
+      value: 0.0000000109324825
       objectReference: {fileID: 0}
     - target: {fileID: 9182683684461234871, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
@@ -2962,7 +2962,7 @@ PrefabInstance:
     - target: {fileID: 9182683684461234871, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.24455544
+      value: 0.24455546
       objectReference: {fileID: 0}
     - target: {fileID: 9182683684461234871, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
@@ -2977,12 +2977,12 @@ PrefabInstance:
     - target: {fileID: 9182683684900871768, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000043240618
+      value: -0.000000009725227
       objectReference: {fileID: 0}
     - target: {fileID: 9182683684900871768, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000011758754
+      value: 0.000000109780046
       objectReference: {fileID: 0}
     - target: {fileID: 9182683684900871768, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
@@ -3032,17 +3032,17 @@ PrefabInstance:
     - target: {fileID: 9182683685636405664, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.24455543
+      value: 0.24455544
       objectReference: {fileID: 0}
     - target: {fileID: 9182683685636405664, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000023225914
+      value: -0.000000034263735
       objectReference: {fileID: 0}
     - target: {fileID: 9182683685636405664, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000025781407
+      value: 0.0000000285653
       objectReference: {fileID: 0}
     - target: {fileID: 9182683685636405664, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
@@ -3924,7 +3924,7 @@ GameObject:
   - component: {fileID: 1563300391}
   - component: {fileID: 1563300390}
   m_Layer: 0
-  m_Name: Support (Hazard) (2)
+  m_Name: Wallrunning 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

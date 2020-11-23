@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: 6469480b4ea13ed4fa0f68b6537a0a72
   - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 9d9fdaf81faf7b24b9812a528b568495
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: ad64dba9651d22c41b641d6b8cfa74ab
+  - enabled: 1
     path: Assets/Scenes/Backmans scene.unity
     guid: 3e877337671a3c1439d1b528a821b1b7
   m_configObjects: {}

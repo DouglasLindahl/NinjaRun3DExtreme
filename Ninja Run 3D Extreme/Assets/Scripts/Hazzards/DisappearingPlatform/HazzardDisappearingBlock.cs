@@ -120,7 +120,7 @@ public class HazzardDisappearingBlock : MonoBehaviour
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             if(rb != null)
             {
-                Debug.Log(explosionForce);
+                //Debug.Log(explosionForce);
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionUpward);
             }
         }

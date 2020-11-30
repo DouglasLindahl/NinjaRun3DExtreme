@@ -14,7 +14,7 @@ public class ChangeScene : MonoBehaviour
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene("Level 2");
+        SceneManager.LoadScene("Level 1");
     }
     public void MainMenu()
     {
@@ -24,7 +24,7 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    void NextScene()
+    public void NextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

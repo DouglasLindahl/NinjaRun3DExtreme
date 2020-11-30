@@ -20,7 +20,6 @@ public class ThirdPersonMovement : MonoBehaviour
     public float jumpHeight = 3;
     public float slideDuration = .5f;
 
-    [Header("Speed Boost Power-up")]
     public static float speedBoostDuration = 3f;
     public float speedMultiplier = 1.5f;
 
@@ -30,6 +29,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
     [Header("Player/Ground")]
     public Transform playerBody;
+
+    Color orangeColor;
 
     Vector3 velocity;
     Vector3 playerScale;
@@ -47,6 +48,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public LayerMask groundMask;
     public float groundDistance = .25f;
 
+    public TrailRenderer playerTrail;
+
     float turnSmoothVelocity;
     float turnSmoothTime = 0.1f;
 
@@ -61,6 +64,8 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         ifErrorSpeed = speed;
         playerScale = transform.localScale;
+
+        orangeColor = new Color(1f, 0.64f, 0f);
     }
     void OnTriggerEnter(Collider other)
     {
@@ -78,6 +83,8 @@ public class ThirdPersonMovement : MonoBehaviour
             speed *= speedMultiplier;
             Destroy(other.gameObject);
             triggerPowerup = true;
+            playerTrail.startColor = orangeColor;
+            playerTrail.endColor = Color.yellow;
         }
     }
     void OnTriggerExit(Collider other)
@@ -89,7 +96,6 @@ public class ThirdPersonMovement : MonoBehaviour
             dashAmount = 1;
         }
     }
-
     void Update()
     {
         if (speed < ifErrorSpeed)
@@ -116,13 +122,13 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump") && canTempJump)
         {
-            velocity.y = Mathf.Sqrt((jumpHeight/1.5f) * -2 * tempGravity);
+            velocity.y = Mathf.Sqrt((jumpHeight / 1.5f) * -2 * tempGravity);
             canTempJump = false;
         }
         //adds a constant gravitational downforce on the player
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-        
+
         //if horizontal input keys are used the player moves and rotates to face to point of moving.
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");

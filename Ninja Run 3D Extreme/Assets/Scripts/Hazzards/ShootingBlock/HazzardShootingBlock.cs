@@ -18,20 +18,18 @@ public class HazzardShootingBlock : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         canShoot = true;
-        Debug.Log(player);
     }
     private void FixedUpdate()
     {
-        distanceAB = Vector3.Distance(transform.position, playerPos.position);
+        //distanceAB = Vector3.Distance(transform.position, playerPos.position);
     }
 
     private void Update()
     {
         playerPos = player.transform;
         //distanceBA = Vector3.Distance(playerPos.position, transform.position);
-        Debug.Log(distanceAB);
         //Debug.Log(distanceBA);
-        if (canShoot == true && maxDistance > distanceAB /*|| maxDistance > distanceBA*/)
+        if (canShoot == true)
         {
             StartCoroutine(ShootProjectile());
         }

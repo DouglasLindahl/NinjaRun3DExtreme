@@ -17,7 +17,6 @@ public class HazzardDisappearingBlock : MonoBehaviour
     private Color endColor = Color.red;
     private Renderer _renderer;
     private MaterialPropertyBlock _propBlock;
-    private float t = 0;
     private float timeElapsed;
     private bool timeStarted = false;
 
@@ -30,7 +29,6 @@ public class HazzardDisappearingBlock : MonoBehaviour
     private float explosionForce;
     private float explosionUpward;
     public GameObject particleHolder;
-    public int wow;
     //Sätter variabler och komponenter lika med X
     void Awake()
     {

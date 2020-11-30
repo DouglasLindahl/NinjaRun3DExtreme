@@ -1063,12 +1063,20 @@ PrefabInstance:
     - target: {fileID: 9182683685513296580, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
       propertyPath: m_LocalRotation.y
+<<<<<<< Updated upstream
       value: -0.000000001530233
+=======
+      value: -0.000000018355989
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 9182683685513296580, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
       propertyPath: m_LocalRotation.z
+<<<<<<< Updated upstream
       value: 0.00000004468448
+=======
+      value: 0.000000048283574
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 9182683685513296580, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
@@ -1241,11 +1249,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 6310500311700420657, guid: 9fd626fde62405a479e6121f0e387090,
     type: 3}
+<<<<<<< Updated upstream
   player: {fileID: 0}
   playerPos: {fileID: 0}
   t: 2
   shootForce: 100
   canShoot: 0
+=======
+  t: 2
+  shootForce: 100
+>>>>>>> Stashed changes
   maxDistance: 20
   projectileOrigin: {fileID: 1590494237}
 --- !u!65 &1360626696

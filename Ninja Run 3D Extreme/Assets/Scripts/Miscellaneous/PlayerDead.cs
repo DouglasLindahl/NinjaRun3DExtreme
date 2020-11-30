@@ -17,7 +17,6 @@ public class PlayerDead : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Debug.Log("Ree");
             if(deathTimer <= 0)
             {
                 deathMenu.SetActive(true);

@@ -42,7 +42,6 @@ public class HazzardShootingBlock : MonoBehaviour
     {
         StopCoroutine(ShootProjectile());
         GameObject shot = GameObject.Instantiate(projectile, projectileOrigin.position, this.gameObject.transform.rotation);
-        shot.GetComponent<Rigidbody>().AddForce(transform.forward * shootForce);
         canShoot = false;
         yield return new WaitForSeconds(t);
         canShoot = true;

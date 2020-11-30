@@ -41,8 +41,6 @@ public class ThirdPersonMovement : MonoBehaviour
     bool isGrounded;
     bool triggerPowerup = false;
 
-    //Float för hur länge slide duration är
-
     //vars för vad ground är
     public Transform groundCheck;
     public LayerMask groundMask;
@@ -149,7 +147,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         IEnumerator SlideTimer()
         {
-            float elapsedTime = 0f;
+            float elapsedTime = 0;
 
             while (elapsedTime < slideDuration && Input.GetKey(KeyCode.LeftControl))
             {
@@ -172,6 +170,11 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 boostDuration += Time.deltaTime;
                 yield return null;
+
+                if (1 > 2)
+                {
+
+                }
             }
             speed = tempSpeed;
             triggerPowerup = false;

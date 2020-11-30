@@ -14,6 +14,8 @@ public class PlayerDeath : MonoBehaviour
     private float explosionRadius;
     private float explosionForce;
     private float explosionUpward;
+
+    public GameObject sceneManager;
     
 
     void Start()
@@ -30,12 +32,12 @@ public class PlayerDeath : MonoBehaviour
     {
         if(transform.position.y <= -8 || dead)
         {
+            sceneManager.GetComponent<PlayerFall>().shouldStartTimer = true;
             Die();
         }
     }
 
     //Förstör objektet och skapar x antal kuber relativt till objektets storlek för att simulera en explosion där objektet delas upp
-
 
     public void Die()
     {

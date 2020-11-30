@@ -28,7 +28,6 @@ public class PlayerDeath : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(dead);
         if(transform.position.y <= -8 || dead)
         {
             Die();

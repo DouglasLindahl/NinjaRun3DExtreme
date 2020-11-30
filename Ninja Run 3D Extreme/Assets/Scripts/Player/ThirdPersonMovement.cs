@@ -20,7 +20,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public float jumpHeight = 3;
     public float slideDuration = .5f;
 
-    public static float speedBoostDuration = 3f;
+    public float speedBoostDuration = 3f;
     public float speedMultiplier = 1.5f;
 
     float gravity = -20f;
@@ -58,8 +58,6 @@ public class ThirdPersonMovement : MonoBehaviour
     float tempSpeed;
     float ifErrorSpeed;
 
-    static float boostDuration;
-
     void Start()
     {
         ifErrorSpeed = speed;
@@ -83,8 +81,12 @@ public class ThirdPersonMovement : MonoBehaviour
             speed *= speedMultiplier;
             Destroy(other.gameObject);
             triggerPowerup = true;
+
             playerTrail.startColor = orangeColor;
             playerTrail.endColor = Color.yellow;
+
+            playerTrail.time = 0.7f;
+            playerTrail.startWidth = 0.6f;
         }
     }
     void OnTriggerExit(Collider other)
@@ -164,7 +166,7 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         IEnumerator SpeedBoostTimer()
         {
-            boostDuration = 0f;
+            float boostDuration = 0f;
 
             while (boostDuration < speedBoostDuration)
             {
@@ -173,6 +175,12 @@ public class ThirdPersonMovement : MonoBehaviour
             }
             speed = tempSpeed;
             triggerPowerup = false;
+
+            playerTrail.startColor = Color.white;
+            playerTrail.endColor = Color.white;
+
+            playerTrail.time = 0.5f;
+            playerTrail.startWidth = 0.5f;
         }
 
         if (direction.magnitude >= 0.1f && !lockMovement)

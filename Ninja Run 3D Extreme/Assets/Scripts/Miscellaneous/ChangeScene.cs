@@ -20,4 +20,12 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene("Start");
     }
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    void NextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }

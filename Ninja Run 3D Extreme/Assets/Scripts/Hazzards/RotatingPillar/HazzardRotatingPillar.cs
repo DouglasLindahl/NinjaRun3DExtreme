@@ -11,10 +11,12 @@ public class HazzardRotatingPillar : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        Debug.Log(other);
+        if (other.tag == "Player")
         {
+            
             other.transform.parent.parent.gameObject.GetComponent<PlayerDeath>().dead = true;
         }
     }

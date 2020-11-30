@@ -22,7 +22,7 @@ public class PlayerDeath : MonoBehaviour
 
         cubesPivotDistance = cubeSize * cubesInRow / 2;
         cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
-        explosionForce = Random.Range(90, 115);
+        explosionForce = Random.Range(70, 90);
         explosionUpward = Random.Range(0.4f, 0.7f);
         explosionRadius = Random.Range(4, 6);
     }
@@ -63,7 +63,6 @@ public class PlayerDeath : MonoBehaviour
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                Debug.Log(explosionForce);
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionUpward);
             }
         }
@@ -74,7 +73,7 @@ public class PlayerDeath : MonoBehaviour
     {
         GameObject piece;
         piece = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        piece.GetComponent<Renderer>().material.color = Color.red;
+        piece.GetComponent<Renderer>().material.color = Color.yellow;
 
         piece.transform.parent = particleHolder.transform;
         piece.transform.position = transform.position + new Vector3(cubeSize * x, cubeSize * y, cubeSize * z) - cubesPivot;

@@ -19,8 +19,8 @@ public class Project : MonoBehaviour
         rb.velocity = transform.forward * speed;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 }

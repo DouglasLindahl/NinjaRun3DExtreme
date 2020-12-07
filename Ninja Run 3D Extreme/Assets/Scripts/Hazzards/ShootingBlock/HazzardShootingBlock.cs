@@ -39,7 +39,7 @@ public class HazzardShootingBlock : MonoBehaviour
     IEnumerator ShootProjectile()
     {
         StopCoroutine(ShootProjectile());
-        GameObject shot = GameObject.Instantiate(projectile, projectileOrigin.position, this.gameObject.transform.rotation);
+        GameObject shot = GameObject.Instantiate(projectile, projectileOrigin.position, this.transform.rotation);
         canShoot = false;
         yield return new WaitForSeconds(t);
         canShoot = true;

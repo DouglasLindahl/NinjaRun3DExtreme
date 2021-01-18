@@ -8,9 +8,11 @@ public class Support : MonoBehaviour
     public Text helpText;
     public Image backGround;
     public string jump;
-    void Start()
+
+    private void Awake()
     {
-        
+        helpText = GameObject.Find("HelpText").GetComponent<Text>();
+        backGround = GameObject.Find("HelpTextBackground").GetComponent<Image>();
     }
 
     // Update is called once per frame

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour
 {
+    [SerializeField]
     private GameObject particleHolder;
     public bool dead;
     private float cubeSize = 0.2f;

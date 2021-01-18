@@ -20,8 +20,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public float jumpHeight = 3;
     public float slideDuration = .5f;
 
-    public AudioSource jumpSound;
-    public AudioSource dashSound;
+    AudioSource jumpSound;
+    AudioSource dashSound;
 
     public float speedBoostDuration = 3f;
     public float speedMultiplier = 1.5f;
@@ -59,6 +59,11 @@ public class ThirdPersonMovement : MonoBehaviour
     float tempSpeed;
     float ifErrorSpeed;
 
+    private void Awake()
+    {
+        jumpSound = GameObject.Find("JumpSoundFX").GetComponent<AudioSource>();
+        dashSound = GameObject.Find("DashSoundFX").GetComponent<AudioSource>();
+    }
     void Start()
     {
         ifErrorSpeed = speed;

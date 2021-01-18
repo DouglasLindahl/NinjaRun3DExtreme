@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource backgroundTrack;
     public AudioSource jumpSound;
+    public AudioSource dashSound;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class SoundManager : MonoBehaviour
         SoundEffectVolume();
         backgroundTrack.volume = musicVolume;
         jumpSound.volume = soundEffectVolume;
+        dashSound.volume = soundEffectVolume;
     }
     void MusicVolume()
     {

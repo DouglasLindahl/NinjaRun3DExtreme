@@ -21,6 +21,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public float slideDuration = .5f;
 
     public AudioSource jumpSound;
+    public AudioSource dashSound;
 
     public float speedBoostDuration = 3f;
     public float speedMultiplier = 1.5f;
@@ -142,6 +143,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             StartCoroutine(SlideTimer());
             lockMovement = true;
+            dashSound.Play();
             dashAmount--;
         }
         if (triggerPowerup)

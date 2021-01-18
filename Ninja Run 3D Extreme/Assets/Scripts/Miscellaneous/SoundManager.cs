@@ -19,13 +19,15 @@ public class SoundManager : MonoBehaviour
     public AudioSource jumpSound;
     public AudioSource dashSound;
 
-    void Start()
+    private void Awake()
     {
         musicVolumeSlider = GameObject.Find("MusicVolumeSlider").GetComponent<Scrollbar>();
         soundEffectVolumeSlider = GameObject.Find("SoundEffectVolumeSlider").GetComponent<Scrollbar>();
         musicVolumeText = GameObject.Find("MusicVolumeText").GetComponent<Text>();
         soundEffectVolumeText = GameObject.Find("SoundEffectVolumeText").GetComponent<Text>();
-
+    }
+    void Start()
+    {
         musicVolumeSlider.value = 1;
         soundEffectVolumeSlider.value = 1;
     }

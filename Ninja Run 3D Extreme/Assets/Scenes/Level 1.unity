@@ -1350,6 +1350,8 @@ MonoBehaviour:
   musicVolumeText: {fileID: 676307696}
   soundEffectVolumeSlider: {fileID: 524676167}
   soundEffectVolumeText: {fileID: 919714994}
+  backgroundTrack: {fileID: 0}
+  jumpSound: {fileID: 0}
 --- !u!4 &1054695866
 Transform:
   m_ObjectHideFlags: 0
@@ -1823,15 +1825,25 @@ PrefabInstance:
       propertyPath: m_LocalRotation.y
       value: -0.000000010752681
       objectReference: {fileID: 0}
+    - target: {fileID: 9053499928729252469, guid: dc063ec712e3e7449bf30c43b321f249,
+        type: 3}
+      propertyPath: particleHolder
+      value: 
+      objectReference: {fileID: 2027292997}
+    - target: {fileID: 9053499928729252469, guid: dc063ec712e3e7449bf30c43b321f249,
+        type: 3}
+      propertyPath: sceneManager
+      value: 
+      objectReference: {fileID: 836153327}
     - target: {fileID: 9053499928836046820, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000021900563
+      value: 0.000000012272851
       objectReference: {fileID: 0}
     - target: {fileID: 9053499928836046820, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000004262758
+      value: 0.00000003857588
       objectReference: {fileID: 0}
     - target: {fileID: 9182683683987844994, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
@@ -3333,36 +3345,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4981824, y: 3.2185953, z: 1.7229552}
   m_Center: {x: -0.7490912, y: 1.6092976, z: 0.8614776}
---- !u!1 &2027292997
+--- !u!1 &2027292997 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7428305385737310654, guid: e43acc34549af0044bf0b5fcbe2387f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7428305386125940987}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2027292998}
-  m_Layer: 8
-  m_Name: ParticleHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2027292998
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027292997}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.4619837, y: 12.254633, z: 16.465633}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2052011344
 GameObject:
   m_ObjectHideFlags: 0
@@ -3927,6 +3915,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cba2e9ab0367708439f396c25fc816d0, type: 3}
+--- !u!1001 &7428305386125940987
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7428305385737310653, guid: e43acc34549af0044bf0b5fcbe2387f3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.4619837
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428305385737310653, guid: e43acc34549af0044bf0b5fcbe2387f3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.254633
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428305385737310653, guid: e43acc34549af0044bf0b5fcbe2387f3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.465633
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428305385737310653, guid: e43acc34549af0044bf0b5fcbe2387f3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428305385737310653, guid: e43acc34549af0044bf0b5fcbe2387f3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428305385737310653, guid: e43acc34549af0044bf0b5fcbe2387f3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428305385737310653, guid: e43acc34549af0044bf0b5fcbe2387f3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428305385737310653, guid: e43acc34549af0044bf0b5fcbe2387f3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428305385737310653, guid: e43acc34549af0044bf0b5fcbe2387f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428305385737310653, guid: e43acc34549af0044bf0b5fcbe2387f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428305385737310653, guid: e43acc34549af0044bf0b5fcbe2387f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428305385737310654, guid: e43acc34549af0044bf0b5fcbe2387f3,
+        type: 3}
+      propertyPath: m_Name
+      value: ParticleHolder
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e43acc34549af0044bf0b5fcbe2387f3, type: 3}
 --- !u!1001 &8545728701962026486
 PrefabInstance:
   m_ObjectHideFlags: 0

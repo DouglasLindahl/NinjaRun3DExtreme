@@ -13,7 +13,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject levelSelector;
 
 
-    // Update is called once per frame
+    private void Start()
+    {
+        menu.SetActive(false);
+        menuOpen = false;
+    }
     void Update()
     {
         if (menuOpen)

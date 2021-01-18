@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4163223924342430264}
   - component: {fileID: 4163223924342430247}
   m_Layer: 0
-  m_Name: Support (Walk)
+  m_Name: Support
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

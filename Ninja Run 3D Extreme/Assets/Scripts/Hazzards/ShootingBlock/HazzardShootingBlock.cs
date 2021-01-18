@@ -5,36 +5,27 @@ using UnityEngine;
 public class HazzardShootingBlock : MonoBehaviour
 {
     public GameObject projectile;
-    GameObject player;
-    Transform playerPos;
     public float t;
-    public float shootForce;
-    bool canShoot;
-    public float maxDistance;
-    private static float distanceAB;
+    private bool canShoot;
     public Transform projectileOrigin;
+    public BoxCollider trigCol;
+    [Header("Range variables")]
+    public bool overrideDistanceVariable;
+    public float shootDistance;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        canShoot = true;
+        if(overrideDistanceVariable == false)
+        {
+            trigCol.size = new Vector3(shootDistance, shootDistance, shootDistance);
+        }
     }
-    private void FixedUpdate()
-    {
-        //distanceAB = Vector3.Distance(transform.position, playerPos.position);
-    }
-
     private void Update()
     {
-        playerPos = player.transform;
-        //distanceBA = Vector3.Distance(playerPos.position, transform.position);
-        //Debug.Log(distanceBA);
         if (canShoot == true)
         {
             StartCoroutine(ShootProjectile());
         }
-
-        DrawRaycast();
     }
     IEnumerator ShootProjectile()
     {
@@ -44,11 +35,18 @@ public class HazzardShootingBlock : MonoBehaviour
         yield return new WaitForSeconds(t);
         canShoot = true;
     }
-
-    private void DrawRaycast()
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.DrawLine(transform.position, player.transform.position, Color.red);
-        Debug.DrawLine(transform.position, player.transform.position, Color.green, maxDistance);
-
+        if (other.CompareTag("Player"))
+        {
+            canShoot = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            canShoot = false;
+        }
     }
 }

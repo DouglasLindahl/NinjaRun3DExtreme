@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour
 {
-    public GameObject particleHolder;
+    private GameObject particleHolder;
     public bool dead;
     private float cubeSize = 0.2f;
     private int cubesInRow = 4;
@@ -20,6 +20,8 @@ public class PlayerDeath : MonoBehaviour
 
     void Start()
     {
+        particleHolder = GameObject.FindGameObjectWithTag("ParticleHolder");
+
         dead = false;
 
         cubesPivotDistance = cubeSize * cubesInRow / 2;

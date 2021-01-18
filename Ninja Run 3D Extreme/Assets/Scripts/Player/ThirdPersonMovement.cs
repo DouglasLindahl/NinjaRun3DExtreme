@@ -20,6 +20,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public float jumpHeight = 3;
     public float slideDuration = .5f;
 
+    public AudioSource jumpSound;
+
     public float speedBoostDuration = 3f;
     public float speedMultiplier = 1.5f;
 
@@ -118,10 +120,12 @@ public class ThirdPersonMovement : MonoBehaviour
         //if button for jump is pressed and player is standing on the ground, the players jumps
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            jumpSound.Play();
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
         if (Input.GetButtonDown("Jump") && canTempJump)
         {
+            jumpSound.Play();
             velocity.y = Mathf.Sqrt((jumpHeight / 1.5f) * -2 * tempGravity);
             canTempJump = false;
         }

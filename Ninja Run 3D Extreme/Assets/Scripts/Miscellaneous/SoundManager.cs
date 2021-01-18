@@ -14,9 +14,14 @@ public class SoundManager : MonoBehaviour
     int soundEffectVolumeTextValue;
     public Scrollbar soundEffectVolumeSlider;
     public Text soundEffectVolumeText;
+
+    public AudioSource backgroundTrack;
+    public AudioSource jumpSound;
+
     void Start()
     {
-        musicVolumeSlider.value = 0;
+        musicVolumeSlider.value = 1;
+        soundEffectVolumeSlider.value = 1;
     }
 
     // Update is called once per frame
@@ -24,17 +29,19 @@ public class SoundManager : MonoBehaviour
     {
         MusicVolume();
         SoundEffectVolume();
+        backgroundTrack.volume = musicVolume;
+        jumpSound.volume = soundEffectVolume;
     }
     void MusicVolume()
     {
-        musicVolume = musicVolumeSlider.value * 100;
-        musicVolumeTextValue = Mathf.RoundToInt(musicVolume);
+        musicVolume = musicVolumeSlider.value;
+        musicVolumeTextValue = Mathf.RoundToInt(musicVolume * 100);
         musicVolumeText.text = musicVolumeTextValue.ToString() + "%";
     }
     void SoundEffectVolume()
     {
-        soundEffectVolume = soundEffectVolumeSlider.value * 100;
-        soundEffectVolumeTextValue = Mathf.RoundToInt(soundEffectVolume);
+        soundEffectVolume = soundEffectVolumeSlider.value;
+        soundEffectVolumeTextValue = Mathf.RoundToInt(soundEffectVolume * 100);
         soundEffectVolumeText.text = soundEffectVolumeTextValue.ToString() + "%";
     }
 }

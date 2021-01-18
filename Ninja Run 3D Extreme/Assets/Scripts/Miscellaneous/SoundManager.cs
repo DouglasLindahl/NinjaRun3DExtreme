@@ -26,7 +26,6 @@ public class SoundManager : MonoBehaviour
         musicVolumeText = GameObject.Find("MusicVolumeText").GetComponent<Text>();
         soundEffectVolumeText = GameObject.Find("SoundEffectVolumeText").GetComponent<Text>();
 
-
         musicVolumeSlider.value = 1;
         soundEffectVolumeSlider.value = 1;
     }

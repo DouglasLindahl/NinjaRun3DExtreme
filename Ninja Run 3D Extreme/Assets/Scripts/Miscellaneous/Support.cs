@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Support : MonoBehaviour
 {
     public Text helpText;
+    public Image backGround;
     public string jump;
     void Start()
     {
@@ -15,7 +16,14 @@ public class Support : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(helpText.text == "")
+        {
+            backGround.gameObject.SetActive(false);
+        }
+        else
+        {
+            backGround.gameObject.SetActive(true);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

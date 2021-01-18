@@ -5,23 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject particleHolder;
+
+  
     public bool dead;
+
     private float cubeSize = 0.2f;
     private int cubesInRow = 4;
+
     private float cubesPivotDistance;
     Vector3 cubesPivot;
+
     private float explosionRadius;
     private float explosionForce;
     private float explosionUpward;
 
-    public GameObject sceneManager;
-    
+    private GameObject sceneManager;
+    private GameObject particleHolder;
+
 
     void Start()
     {
         particleHolder = GameObject.FindGameObjectWithTag("ParticleHolder");
+        sceneManager = GameObject.FindGameObjectWithTag("SceneManager");
 
         dead = false;
 

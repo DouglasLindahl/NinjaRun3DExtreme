@@ -89,14 +89,14 @@ public class PlayerDeath : MonoBehaviour
         GameObject piece;
         piece = GameObject.CreatePrimitive(PrimitiveType.Cube);
         piece.GetComponent<Renderer>().material.color = Color.yellow;
-
+        
         piece.transform.parent = particleHolder.transform;
         piece.transform.position = transform.position + new Vector3(cubeSize * x, cubeSize * y, cubeSize * z) - cubesPivot;
         piece.transform.localScale = new Vector3(cubeSize, cubeSize, cubeSize);
         piece.AddComponent<Rigidbody>();
         piece.GetComponent<Rigidbody>().mass = cubeSize;
         piece.AddComponent<HazzardParticleDestroyer>();
-        piece.layer = 10;
+        piece.layer = 0;
     }
 
 

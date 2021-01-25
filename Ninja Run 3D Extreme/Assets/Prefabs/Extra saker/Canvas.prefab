@@ -193,8 +193,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7032938474487707174, guid: cba2e9ab0367708439f396c25fc816d0,
-          type: 3}
+      - m_Target: {fileID: 2030508174093466572}
         m_MethodName: ReloadScene
         m_Mode: 1
         m_Arguments:
@@ -558,7 +557,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2030508174093466574}
         m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
@@ -818,7 +817,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2030508174093466574}
         m_MethodName: OpenSettings
         m_Mode: 1
         m_Arguments:
@@ -1182,7 +1181,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2030508174093466574}
         m_MethodName: OpenLevelSelector
         m_Mode: 1
         m_Arguments:
@@ -2039,7 +2038,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2030508174093466572}
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:

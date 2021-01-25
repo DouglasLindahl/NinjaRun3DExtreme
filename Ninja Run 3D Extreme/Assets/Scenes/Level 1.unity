@@ -691,6 +691,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4981824, y: 3.2185953, z: 1.7229552}
   m_Center: {x: -0.7490912, y: 1.6092976, z: 0.8614776}
+--- !u!1 &515103917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8545728702502683817, guid: 0716dec40d2978f41a39d9bc497473ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 604477929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &522075311 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2be9a8627c3de314aa6946f345f8fbcc,
@@ -723,6 +729,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2030508174093466574, guid: 0716dec40d2978f41a39d9bc497473ab,
+        type: 3}
+      propertyPath: settings
+      value: 
+      objectReference: {fileID: 2018218088}
+    - target: {fileID: 2030508174093466574, guid: 0716dec40d2978f41a39d9bc497473ab,
+        type: 3}
+      propertyPath: levelSelector
+      value: 
+      objectReference: {fileID: 515103917}
+    - target: {fileID: 8545728701784083270, guid: 0716dec40d2978f41a39d9bc497473ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8545728701792025300, guid: 0716dec40d2978f41a39d9bc497473ab,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1764,17 +1785,17 @@ PrefabInstance:
     - target: {fileID: 2800990315578139829, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000021900563
+      value: 0.000000012272851
       objectReference: {fileID: 0}
     - target: {fileID: 2800990315578139829, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000004262758
+      value: 0.00000003857588
       objectReference: {fileID: 0}
     - target: {fileID: 2800990317427911798, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001075268
+      value: -0.000000010752681
       objectReference: {fileID: 0}
     - target: {fileID: 6308865727584834557, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
@@ -3393,6 +3414,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4981824, y: 3.2185953, z: 1.7229552}
   m_Center: {x: -0.7490912, y: 1.6092976, z: 0.8614776}
+--- !u!1 &2018218088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8545728701902326566, guid: 0716dec40d2978f41a39d9bc497473ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 604477929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2027292997 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7428305385737310654, guid: e43acc34549af0044bf0b5fcbe2387f3,

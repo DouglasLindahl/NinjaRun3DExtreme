@@ -7,7 +7,7 @@ public class NextLevel : MonoBehaviour
 {
     AudioSource victorySound;
 
-    private void Awake()
+    void Awake()
     {
         victorySound = GameObject.Find("VictorySoundFX").GetComponent<AudioSource>();
     }

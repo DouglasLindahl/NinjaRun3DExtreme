@@ -8,9 +8,11 @@ public class Support : MonoBehaviour
     public Text helpText;
     public Image backGround;
     public string jump;
+    GameObject scenemanager;
 
     private void Awake()
     {
+        scenemanager = GameObject.FindGameObjectWithTag("SceneManager");
         helpText = GameObject.Find("HelpText").GetComponent<Text>();
         backGround = GameObject.Find("HelpTextBackground").GetComponent<Image>();
     }
@@ -25,6 +27,19 @@ public class Support : MonoBehaviour
         else
         {
             backGround.gameObject.SetActive(true);
+        }
+    }
+    private void LateUpdate()
+    {
+        if (scenemanager.GetComponent<PauseMenu>().menuOpen == true)
+        {
+            helpText.enabled = false;
+            backGround.enabled = false;
+        }
+        else
+        {
+            helpText.enabled = true;
+            backGround.enabled = true;
         }
     }
     private void OnTriggerEnter(Collider other)

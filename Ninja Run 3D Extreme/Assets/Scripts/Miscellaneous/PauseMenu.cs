@@ -5,7 +5,7 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     [Header("Menu")]
-    bool menuOpen = false;
+    public bool menuOpen = false;
     bool settingsOpen = false;
     bool levelSelectorOpen = false;
     public GameObject menu;

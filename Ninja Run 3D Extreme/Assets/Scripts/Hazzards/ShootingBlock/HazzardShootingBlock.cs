@@ -9,23 +9,27 @@ public class HazzardShootingBlock : MonoBehaviour
     private bool canShoot;
     public Transform projectileOrigin;
     public BoxCollider trigCol;
+    Transform player;
     [Header("Range variables")]
-    public bool overrideDistanceVariable;
+    public bool overrideSetDistanceVariable;
     public float shootDistance;
 
     private void Start()
     {
-        if(overrideDistanceVariable == false)
+        canShoot = true;
+        player = GameObject.Find("Player Holder").transform;
+        if(overrideSetDistanceVariable == false)
         {
-            trigCol.size = new Vector3(shootDistance, shootDistance, shootDistance);
+            shootDistance = 20f;
         }
     }
     private void Update()
     {
-        if (canShoot == true)
+        if (Vector3.Distance(player.position, transform.position) < shootDistance && canShoot == true)
         {
             StartCoroutine(ShootProjectile());
         }
+        Debug.DrawLine(projectileOrigin.position, projectileOrigin.forward * shootDistance, Color.blue);
     }
     IEnumerator ShootProjectile()
     {
@@ -34,19 +38,5 @@ public class HazzardShootingBlock : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(t);
         canShoot = true;
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            canShoot = true;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            canShoot = false;
-        }
     }
 }

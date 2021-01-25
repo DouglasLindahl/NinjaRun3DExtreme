@@ -18,6 +18,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource backgroundTrack;
     public AudioSource jumpSound;
     public AudioSource dashSound;
+    public AudioSource deathSound;
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class SoundManager : MonoBehaviour
         backgroundTrack.volume = musicVolume;
         jumpSound.volume = soundEffectVolume;
         dashSound.volume = soundEffectVolume;
+        deathSound.volume = soundEffectVolume;
     }
     void MusicVolume()
     {

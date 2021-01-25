@@ -19,10 +19,15 @@ public class PlayerDeath : MonoBehaviour
     private float explosionForce;
     private float explosionUpward;
 
+    AudioSource deathSound;
+
     private GameObject sceneManager;
     private GameObject particleHolder;
 
-
+    private void Awake()
+    {
+        deathSound = GameObject.Find("DeathSoundFX").GetComponent<AudioSource>();
+    }
     void Start()
     {
         particleHolder = GameObject.FindGameObjectWithTag("ParticleHolder");
@@ -50,6 +55,7 @@ public class PlayerDeath : MonoBehaviour
     public void Die()
     {
         Explode();
+        deathSound.Play();
     }
 
     public void Explode()

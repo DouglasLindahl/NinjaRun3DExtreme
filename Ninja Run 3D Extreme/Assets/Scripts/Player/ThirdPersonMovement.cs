@@ -181,14 +181,10 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 boostDuration += Time.deltaTime;
                 yield return null;
-
-                if (1 > 2)
-                {
-
-                }
             }
-            speed = tempSpeed;
             triggerPowerup = false;
+
+            speed = tempSpeed;
 
             playerTrail.startColor = Color.white;
             playerTrail.endColor = Color.white;

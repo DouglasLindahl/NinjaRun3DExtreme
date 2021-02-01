@@ -41,15 +41,6 @@ public class PlayerDeath : MonoBehaviour
         explosionUpward = Random.Range(0.4f, 0.7f);
         explosionRadius = Random.Range(4, 6);
     }
-    void Update()
-    {
-        if(transform.position.y <= -100 || dead)
-        {
-            Debug.Log("LOL");
-            sceneManager.GetComponent<PlayerFall>().shouldStartTimer = true;
-            Die();
-        }
-    }
 
     //Förstör objektet och skapar x antal kuber relativt till objektets storlek för att simulera en explosion där objektet delas upp
 
@@ -59,6 +50,7 @@ public class PlayerDeath : MonoBehaviour
         {
             dead = true;
         }
+        sceneManager.GetComponent<PlayerFall>().shouldStartTimer = true;
         Explode();
         deathSound.Play();
     }

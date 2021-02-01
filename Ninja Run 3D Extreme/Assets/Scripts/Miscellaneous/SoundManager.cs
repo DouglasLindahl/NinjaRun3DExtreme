@@ -27,6 +27,10 @@ public class SoundManager : MonoBehaviour
     {
         DontDestroyOnLoad(this);
         
+        
+    }
+    private void OnLevelWasLoaded(int level)
+    {
         musicVolumeSlider = GameObject.Find("MusicVolumeSlider").GetComponent<Scrollbar>();
         soundEffectVolumeSlider = GameObject.Find("SoundEffectVolumeSlider").GetComponent<Scrollbar>();
         musicVolumeText = GameObject.Find("MusicVolumeText").GetComponent<Text>();

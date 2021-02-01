@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class InstantiateMusic : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    GameObject[] smngr;
+    public GameObject smngrPrefab;
+    private void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        smngr = GameObject.FindGameObjectsWithTag("SoundManager");
+        int numberOfSoundManagers = smngr.Length;
+        if (numberOfSoundManagers == 0)
+        {
+            Instantiate(smngrPrefab);
+        }
     }
 }

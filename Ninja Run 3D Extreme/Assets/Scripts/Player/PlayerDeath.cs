@@ -80,7 +80,7 @@ public class PlayerDeath : MonoBehaviour
     {
         GameObject piece;
         piece = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        piece.GetComponent<Renderer>().material.color = Color.yellow;
+        piece.GetComponent<Renderer>().material.color = Color.green;
         
         piece.transform.parent = particleHolder.transform;
         piece.transform.position = transform.position + new Vector3(cubeSize * x, cubeSize * y, cubeSize * z) - cubesPivot;

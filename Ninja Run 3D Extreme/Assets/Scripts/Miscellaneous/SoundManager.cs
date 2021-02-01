@@ -26,13 +26,24 @@ public class SoundManager : MonoBehaviour
     private void Awake()
     {
         mngr = GameObject.FindGameObjectsWithTag("SoundManager");
+       
 
         DontDestroyOnLoad(this);
         int numberOfSoundManagers = mngr.Length;
+        if(mngr.Length == 1)
+        {
+            mngr[0].GetComponent<IsOriginal>().isOriginalMngr = true;
+        }
         
         if (mngr.Length == 2)
         {
-            Destroy(mngr[1]);
+            for (int i = 0; i < mngr.Length; i++)
+            {
+                if(mngr[i].GetComponent<IsOriginal>().isOriginalMngr == false)
+                {
+                    Destroy(mngr[i]);
+                }
+            }
         }
         musicVolumeSlider = GameObject.Find("MusicVolumeSlider").GetComponent<Scrollbar>();
         soundEffectVolumeSlider = GameObject.Find("SoundEffectVolumeSlider").GetComponent<Scrollbar>();

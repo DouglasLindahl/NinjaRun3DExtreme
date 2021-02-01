@@ -21,8 +21,19 @@ public class SoundManager : MonoBehaviour
     public AudioSource deathSound;
     public AudioSource victorySound;
 
+    GameObject[] mngr;
+
     private void Awake()
     {
+        mngr = GameObject.FindGameObjectsWithTag("SoundManager");
+
+        DontDestroyOnLoad(this);
+        int numberOfSoundManagers = mngr.Length;
+        
+        if (mngr.Length == 2)
+        {
+            Destroy(mngr[1]);
+        }
         musicVolumeSlider = GameObject.Find("MusicVolumeSlider").GetComponent<Scrollbar>();
         soundEffectVolumeSlider = GameObject.Find("SoundEffectVolumeSlider").GetComponent<Scrollbar>();
         musicVolumeText = GameObject.Find("MusicVolumeText").GetComponent<Text>();
@@ -30,13 +41,14 @@ public class SoundManager : MonoBehaviour
     }
     void Start()
     {
-        musicVolumeSlider.value = 1;
-        soundEffectVolumeSlider.value = 1;
+        musicVolumeSlider.value = musicVolume;
+        soundEffectVolumeSlider.value = soundEffectVolume;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(mngr.Length);
         MusicVolume();
         SoundEffectVolume();
         backgroundTrack.volume = musicVolume;

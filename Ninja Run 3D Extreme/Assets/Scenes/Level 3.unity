@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.92549026, g: 0.011764707, b: 0.3254902, a: 1}
+  m_FogColor: {r: 0.015686275, g: 0.9254902, b: 0.5294118, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.015
   m_LinearFogStart: 0
@@ -360,7 +360,7 @@ PrefabInstance:
     - target: {fileID: 1347641774351235161, guid: 02cb7fabc0ecedb45b4d09643ce14a1d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1347641774351235161, guid: 02cb7fabc0ecedb45b4d09643ce14a1d,
         type: 3}
@@ -2594,10 +2594,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1226189616372369107, guid: dc063ec712e3e7449bf30c43b321f249,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.011764723
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226189616372369107, guid: dc063ec712e3e7449bf30c43b321f249,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.9254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226189616372369107, guid: dc063ec712e3e7449bf30c43b321f249,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.52657187
+      objectReference: {fileID: 0}
     - target: {fileID: 1226189616392891172, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000010752681
+      value: -0.00000001075268
       objectReference: {fileID: 0}
     - target: {fileID: 1226189617448561017, guid: dc063ec712e3e7449bf30c43b321f249,
         type: 3}

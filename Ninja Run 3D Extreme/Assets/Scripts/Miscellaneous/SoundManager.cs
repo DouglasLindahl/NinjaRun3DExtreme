@@ -26,11 +26,9 @@ public class SoundManager : MonoBehaviour
     private void Awake()
     {
         mngr = GameObject.FindGameObjectsWithTag("SoundManager");
-       
-
-        DontDestroyOnLoad(this);
         int numberOfSoundManagers = mngr.Length;
-        if(mngr.Length == 1)
+        DontDestroyOnLoad(this);
+        if (mngr.Length == 1)
         {
             mngr[0].GetComponent<IsOriginal>().isOriginalMngr = true;
         }

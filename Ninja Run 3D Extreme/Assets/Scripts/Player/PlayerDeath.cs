@@ -46,6 +46,10 @@ public class PlayerDeath : MonoBehaviour
         if(transform.position.y <= -8 || dead)
         {
             sceneManager.GetComponent<PlayerFall>().shouldStartTimer = true;
+            if (!dead)
+            {
+                dead = true;
+            }
             Die();
         }
     }

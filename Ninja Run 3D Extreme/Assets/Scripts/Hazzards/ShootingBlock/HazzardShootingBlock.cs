@@ -8,7 +8,6 @@ public class HazzardShootingBlock : MonoBehaviour
     public float t;
     private bool canShoot;
     public Transform projectileOrigin;
-    public BoxCollider trigCol;
     Transform player;
     [Header("Range variables")]
     public bool overrideSetDistanceVariable;

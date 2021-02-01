@@ -8,7 +8,7 @@ public class DeathCollider : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponentInParent<PlayerDeath>().Die();
+            other.gameObject.GetComponentInParent<PlayerDeath>().dead = true;
         }
     }
 }

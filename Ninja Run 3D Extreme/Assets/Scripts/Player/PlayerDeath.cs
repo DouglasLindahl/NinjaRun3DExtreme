@@ -31,7 +31,7 @@ public class PlayerDeath : MonoBehaviour
     void Start()
     {
         particleHolder = GameObject.FindGameObjectWithTag("ParticleHolder");
-        sceneManager = GameObject.Find("SceneManager");
+        sceneManager = GameObject.FindGameObjectWithTag("SceneManager");
 
         dead = false;
 
@@ -45,6 +45,7 @@ public class PlayerDeath : MonoBehaviour
     {
         if(transform.position.y <= -100 || dead)
         {
+            Debug.Log("LOL");
             sceneManager.GetComponent<PlayerFall>().shouldStartTimer = true;
             Die();
         }

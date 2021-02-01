@@ -5,10 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour
 {
-
-  
-    public bool dead;
-
     private float cubeSize = 0.2f;
     private int cubesInRow = 4;
 
@@ -24,16 +20,18 @@ public class PlayerDeath : MonoBehaviour
     private GameObject sceneManager;
     private GameObject particleHolder;
 
+    public bool dead;
+
     private void Awake()
     {
         deathSound = GameObject.Find("DeathSoundFX").GetComponent<AudioSource>();
     }
     void Start()
     {
+        dead = false;
+
         particleHolder = GameObject.FindGameObjectWithTag("ParticleHolder");
         sceneManager = GameObject.FindGameObjectWithTag("SceneManager");
-
-        dead = false;
 
         cubesPivotDistance = cubeSize * cubesInRow / 2;
         cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
@@ -46,10 +44,7 @@ public class PlayerDeath : MonoBehaviour
 
     public void Die()
     {
-        if (!dead)
-        {
-            dead = true;
-        }
+        dead = true;
         sceneManager.GetComponent<PlayerFall>().shouldStartTimer = true;
         Explode();
         deathSound.Play();
@@ -95,6 +90,4 @@ public class PlayerDeath : MonoBehaviour
         piece.AddComponent<HazzardParticleDestroyer>();
         piece.layer = 0;
     }
-
-
 }

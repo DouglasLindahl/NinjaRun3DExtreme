@@ -43,13 +43,10 @@ public class PlayerDeath : MonoBehaviour
     }
     void Update()
     {
-        if(transform.position.y <= -8 || dead)
+        if(transform.position.y <= -100 || dead)
         {
             sceneManager.GetComponent<PlayerFall>().shouldStartTimer = true;
-            if (!dead)
-            {
-                dead = true;
-            }
+            
             Die();
         }
     }
@@ -58,6 +55,10 @@ public class PlayerDeath : MonoBehaviour
 
     public void Die()
     {
+        if (!dead)
+        {
+            dead = true;
+        }
         Explode();
         deathSound.Play();
     }

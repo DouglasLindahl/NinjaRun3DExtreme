@@ -28,21 +28,7 @@ public class SoundManager : MonoBehaviour
         mngr = GameObject.FindGameObjectsWithTag("SoundManager");
         int numberOfSoundManagers = mngr.Length;
         DontDestroyOnLoad(this);
-        if (mngr.Length == 1)
-        {
-            mngr[0].GetComponent<IsOriginal>().isOriginalMngr = true;
-        }
         
-        if (mngr.Length == 2)
-        {
-            for (int i = 0; i < mngr.Length; i++)
-            {
-                if(mngr[i].GetComponent<IsOriginal>().isOriginalMngr == false)
-                {
-                    Destroy(mngr[i]);
-                }
-            }
-        }
         musicVolumeSlider = GameObject.Find("MusicVolumeSlider").GetComponent<Scrollbar>();
         soundEffectVolumeSlider = GameObject.Find("SoundEffectVolumeSlider").GetComponent<Scrollbar>();
         musicVolumeText = GameObject.Find("MusicVolumeText").GetComponent<Text>();
@@ -50,6 +36,21 @@ public class SoundManager : MonoBehaviour
     }
     void Start()
     {
+        if (mngr.Length == 1)
+        {
+            mngr[0].GetComponent<IsOriginal>().isOriginalMngr = true;
+        }
+
+        if (mngr.Length == 2)
+        {
+            for (int i = 0; i < mngr.Length; i++)
+            {
+                if (mngr[i].GetComponent<IsOriginal>().isOriginalMngr == false)
+                {
+                    Destroy(mngr[i]);
+                }
+            }
+        }
         musicVolumeSlider.value = musicVolume;
         soundEffectVolumeSlider.value = soundEffectVolume;
     }

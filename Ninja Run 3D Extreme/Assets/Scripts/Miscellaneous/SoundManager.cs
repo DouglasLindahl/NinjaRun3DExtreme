@@ -25,8 +25,6 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        mngr = GameObject.FindGameObjectsWithTag("SoundManager");
-        int numberOfSoundManagers = mngr.Length;
         DontDestroyOnLoad(this);
         
         musicVolumeSlider = GameObject.Find("MusicVolumeSlider").GetComponent<Scrollbar>();
@@ -36,7 +34,9 @@ public class SoundManager : MonoBehaviour
     }
     void Start()
     {
-        if (mngr.Length == 1)
+        musicVolumeSlider.value = musicVolume;
+        soundEffectVolumeSlider.value = soundEffectVolume;
+        /*if (mngr.Length == 1)
         {
             mngr[0].GetComponent<IsOriginal>().isOriginalMngr = true;
         }
@@ -50,15 +50,12 @@ public class SoundManager : MonoBehaviour
                     Destroy(mngr[i]);
                 }
             }
-        }
-        musicVolumeSlider.value = musicVolume;
-        soundEffectVolumeSlider.value = soundEffectVolume;
+        }*/
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(mngr.Length);
         MusicVolume();
         SoundEffectVolume();
         backgroundTrack.volume = musicVolume;

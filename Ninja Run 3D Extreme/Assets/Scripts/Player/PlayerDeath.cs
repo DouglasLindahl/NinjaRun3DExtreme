@@ -49,6 +49,13 @@ public class PlayerDeath : MonoBehaviour
         Explode();
         deathSound.Play();
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Die();
+        }
+    }
 
     public void Explode()
     {

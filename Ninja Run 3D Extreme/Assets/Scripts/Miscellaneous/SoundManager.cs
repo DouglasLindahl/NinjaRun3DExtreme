@@ -36,6 +36,8 @@ public class SoundManager : MonoBehaviour
     }
     void Start()
     {
+        musicVolumeSlider.value = musicVolume;
+        soundEffectVolumeSlider.value = soundEffectVolume;
         if (mngr.Length == 1)
         {
             mngr[0].GetComponent<IsOriginal>().isOriginalMngr = true;
@@ -51,14 +53,11 @@ public class SoundManager : MonoBehaviour
                 }
             }
         }
-        musicVolumeSlider.value = musicVolume;
-        soundEffectVolumeSlider.value = soundEffectVolume;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(mngr.Length);
         MusicVolume();
         SoundEffectVolume();
         backgroundTrack.volume = musicVolume;

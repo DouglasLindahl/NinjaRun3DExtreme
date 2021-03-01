@@ -15,11 +15,11 @@ public class ChoseLevelButton : MonoBehaviour
     }
     public void HoverOverButton()
     {
-        image.enabled = true;
+        image.canvasRenderer.SetAlpha(1);
         image = levelImage;
     }
     public void LeaveButton()
     {
-        image.enabled = false;
+        image.canvasRenderer.SetAlpha(0);
     }
 }

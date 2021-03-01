@@ -5,9 +5,11 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     [Header("Menu")]
+    public bool canOpenMenu;
     public bool menuOpen = false;
     bool settingsOpen = false;
     bool levelSelectorOpen = false;
+    public GameObject wonMenu;
     public GameObject menu;
     public GameObject settings;
     public GameObject levelSelector;
@@ -15,20 +17,14 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
+        canOpenMenu = true;
+        wonMenu.SetActive(false);
         menu.SetActive(false);
         menuOpen = false;
     }
     void Update()
     {
-        if (menuOpen)
-        {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && canOpenMenu)
         {
             OpenMenu();
         }
@@ -57,6 +53,7 @@ public class PauseMenu : MonoBehaviour
     {
         menu.SetActive(false);
         menuOpen = false;
+        Time.timeScale = 1;
     }
     public void OpenMenu()
     {
@@ -66,12 +63,14 @@ public class PauseMenu : MonoBehaviour
             menuOpen = false;
             levelSelectorOpen = false;
             settingsOpen = false;
+            Time.timeScale = 1;
         }
         else
         {
             menu.SetActive(true);
             menuOpen = true;
             settingsOpen = true;
+            Time.timeScale = 0;
         }
     }
     public void OpenSettings()

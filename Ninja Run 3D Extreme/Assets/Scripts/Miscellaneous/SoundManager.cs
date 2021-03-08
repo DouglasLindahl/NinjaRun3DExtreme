@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -22,12 +23,11 @@ public class SoundManager : MonoBehaviour
     public AudioSource victorySound;
 
     GameObject[] mngr;
+    private Scene scene;
 
     private void Awake()
     {
         DontDestroyOnLoad(this);
-        
-        
     }
     private void OnLevelWasLoaded(int level)
     {
@@ -39,7 +39,7 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         musicVolumeSlider.value = musicVolume;
-        soundEffectVolumeSlider.value = soundEffectVolume;
+        soundEffectVolumeSlider.value =  soundEffectVolume;
         /*if (mngr.Length == 1)
         {
             mngr[0].GetComponent<IsOriginal>().isOriginalMngr = true;
@@ -55,6 +55,7 @@ public class SoundManager : MonoBehaviour
                 }
             }
         }*/
+
     }
 
     // Update is called once per frame
@@ -80,4 +81,13 @@ public class SoundManager : MonoBehaviour
         soundEffectVolumeTextValue = Mathf.RoundToInt(soundEffectVolume * 100);
         soundEffectVolumeText.text = soundEffectVolumeTextValue.ToString() + "%";
     }
+
+    void OnSceneWasSwitched()
+    {
+        musicVolumeSlider = GameObject.Find("MusicVolumeSlider").GetComponent<Scrollbar>();
+        soundEffectVolumeSlider = GameObject.Find("SoundEffectVolumeSlider").GetComponent<Scrollbar>();
+        musicVolumeText = GameObject.Find("MusicVolumeText").GetComponent<Text>();
+        soundEffectVolumeText = GameObject.Find("SoundEffectVolumeText").GetComponent<Text>();
+    }
+   
 }

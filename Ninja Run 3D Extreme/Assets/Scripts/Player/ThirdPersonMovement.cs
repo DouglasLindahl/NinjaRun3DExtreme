@@ -144,7 +144,7 @@ public class ThirdPersonMovement : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && dashAmount == 1)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && dashAmount == 1 || Input.GetKeyDown(KeyCode.LeftShift) && dashAmount == 1)
         {
             StartCoroutine(SlideTimer());
             lockMovement = true;
@@ -160,7 +160,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             float elapsedTime = 0;
 
-            while (elapsedTime < slideDuration && Input.GetKey(KeyCode.LeftControl))
+            while (elapsedTime < slideDuration && Input.GetKey(KeyCode.LeftControl) || elapsedTime < slideDuration && Input.GetKey(KeyCode.LeftShift))
             {
                 transform.localScale = crouchScale;
 

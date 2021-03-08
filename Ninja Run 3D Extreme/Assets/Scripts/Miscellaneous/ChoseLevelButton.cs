@@ -16,7 +16,7 @@ public class ChoseLevelButton : MonoBehaviour
     public void HoverOverButton()
     {
         image.canvasRenderer.SetAlpha(1);
-        image = levelImage;
+        image.GetComponent<Image>().sprite = levelImage.sprite;
     }
     public void LeaveButton()
     {

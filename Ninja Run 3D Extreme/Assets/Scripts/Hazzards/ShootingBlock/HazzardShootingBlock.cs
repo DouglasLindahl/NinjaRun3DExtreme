@@ -12,6 +12,7 @@ public class HazzardShootingBlock : MonoBehaviour
     [Header("Range variables")]
     public bool overrideSetDistanceVariable;
     public float shootDistance;
+    public float projectileLifeTime;
 
     private void Start()
     {
@@ -24,6 +25,8 @@ public class HazzardShootingBlock : MonoBehaviour
     }
     private void Update()
     {
+
+
         if (Vector3.Distance(player.position, transform.position) < shootDistance && canShoot == true)
         {
             StartCoroutine(ShootProjectile());
@@ -34,6 +37,10 @@ public class HazzardShootingBlock : MonoBehaviour
     {
         StopCoroutine(ShootProjectile());
         GameObject shot = GameObject.Instantiate(projectile, projectileOrigin.position, this.transform.rotation);
+        if(shot.GetComponent<Project>().t != projectileLifeTime && projectileLifeTime != 0.0f)
+        {
+            shot.GetComponent<Project>().t = projectileLifeTime;
+        }
         canShoot = false;
         yield return new WaitForSeconds(t);
         canShoot = true;

@@ -21,7 +21,7 @@ public class Project : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = transform.forward * speed;
+        rb.velocity = transform.forward * speed * Time.deltaTime;
     }
     private void OnCollisionEnter(Collision other)
     {

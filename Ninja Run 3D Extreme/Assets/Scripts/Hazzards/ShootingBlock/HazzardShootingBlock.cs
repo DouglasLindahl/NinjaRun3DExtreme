@@ -37,9 +37,13 @@ public class HazzardShootingBlock : MonoBehaviour
     {
         StopCoroutine(ShootProjectile());
         GameObject shot = GameObject.Instantiate(projectile, projectileOrigin.position, this.transform.rotation);
-        if(shot.GetComponent<Project>().t != projectileLifeTime && projectileLifeTime != 0.0f)
+        if(shot.GetComponent<Project>().t != projectileLifeTime && projectileLifeTime > 0)
         {
             shot.GetComponent<Project>().t = projectileLifeTime;
+        }
+        else
+        {
+            shot.GetComponent<Project>().t = 2;
         }
         canShoot = false;
         yield return new WaitForSeconds(t);

@@ -7,21 +7,23 @@ public class Project : MonoBehaviour
     float speed;
     Rigidbody rb;
     public float t;
+    public bool hasStartedT;
     // Start is called before the first frame update
     void Start()
     {
-        if(t == 0)
-        {
-            t = 2;
-        }
-        StartCoroutine(timedDestroy());
         speed = 10;
         rb = gameObject.GetComponent<Rigidbody>();
+        
     }
     // Update is called once per frame
     void Update()
     {
         rb.velocity = transform.forward * speed * Time.deltaTime;
+        if (!hasStartedT)
+        {
+            StartCoroutine(timedDestroy());
+            hasStartedT = true;
+        }
     }
     private void OnCollisionEnter(Collision other)
     {

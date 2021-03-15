@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Project : MonoBehaviour
 {
-   
-    Rigidbody rb
+
+    Rigidbody rb;
     public float speed;
     public float t;
     bool hasStartedT;

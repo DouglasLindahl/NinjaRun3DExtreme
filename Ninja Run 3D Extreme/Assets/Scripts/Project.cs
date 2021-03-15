@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Project : MonoBehaviour
 {
-    float speed;
-    Rigidbody rb;
+   
+    Rigidbody rb
+    public float speed;
     public float t;
-    public bool hasStartedT;
+    bool hasStartedT;
     // Start is called before the first frame update
     void Start()
     {

@@ -13,6 +13,7 @@ public class HazzardShootingBlock : MonoBehaviour
     public bool overrideSetDistanceVariable;
     public float shootDistance;
     public float projectileLifeTime;
+    public float projectileSpeed;
 
     private void Start()
     {
@@ -37,6 +38,7 @@ public class HazzardShootingBlock : MonoBehaviour
     {
         StopCoroutine(ShootProjectile());
         GameObject shot = GameObject.Instantiate(projectile, projectileOrigin.position, this.transform.rotation);
+
         if(shot.GetComponent<Project>().t != projectileLifeTime && projectileLifeTime > 0)
         {
             Debug.Log("Hello");
@@ -46,6 +48,17 @@ public class HazzardShootingBlock : MonoBehaviour
         {
             shot.GetComponent<Project>().t = 2;
         }
+
+        if (shot.GetComponent<Project>().speed != projectileSpeed && projectileSpeed > 0)
+        {
+            Debug.Log("Hello");
+            shot.GetComponent<Project>().speed = projectileSpeed;
+        }
+        else
+        {
+            shot.GetComponent<Project>().speed = 3600;
+        }
+
         canShoot = false;
         yield return new WaitForSeconds(t);
         canShoot = true;

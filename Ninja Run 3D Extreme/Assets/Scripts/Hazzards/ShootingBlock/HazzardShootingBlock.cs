@@ -41,7 +41,6 @@ public class HazzardShootingBlock : MonoBehaviour
 
         if(shot.GetComponent<Project>().t != projectileLifeTime && projectileLifeTime > 0)
         {
-            Debug.Log("Hello");
             shot.GetComponent<Project>().t = projectileLifeTime;
         }
         else
@@ -51,7 +50,6 @@ public class HazzardShootingBlock : MonoBehaviour
 
         if (shot.GetComponent<Project>().speed != projectileSpeed && projectileSpeed > 0)
         {
-            Debug.Log("Hello");
             shot.GetComponent<Project>().speed = projectileSpeed;
         }
         else

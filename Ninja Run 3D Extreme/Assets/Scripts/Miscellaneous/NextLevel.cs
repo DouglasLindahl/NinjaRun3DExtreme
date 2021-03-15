@@ -20,7 +20,6 @@ public class NextLevel : MonoBehaviour
     }
     void OpenWonMenu()
     {
-
         wonMenu.SetActive(true);
         timeText.text = sceneManager.GetComponent<Timer>().publicTimeText;
         sceneManager.GetComponent<PauseMenu>().canOpenMenu = false;

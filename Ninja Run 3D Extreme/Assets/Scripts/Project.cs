@@ -11,7 +11,7 @@ public class Project : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 10;
+        speed = 3600;
         rb = gameObject.GetComponent<Rigidbody>();
         
     }
@@ -21,6 +21,7 @@ public class Project : MonoBehaviour
         rb.velocity = transform.forward * speed * Time.deltaTime;
         if (!hasStartedT)
         {
+            Debug.Log(t);
             StartCoroutine(timedDestroy());
             hasStartedT = true;
         }

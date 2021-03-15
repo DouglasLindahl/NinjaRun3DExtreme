@@ -39,6 +39,7 @@ public class HazzardShootingBlock : MonoBehaviour
         GameObject shot = GameObject.Instantiate(projectile, projectileOrigin.position, this.transform.rotation);
         if(shot.GetComponent<Project>().t != projectileLifeTime && projectileLifeTime > 0)
         {
+            Debug.Log("Hello");
             shot.GetComponent<Project>().t = projectileLifeTime;
         }
         else

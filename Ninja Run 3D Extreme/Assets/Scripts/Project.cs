@@ -15,9 +15,13 @@ public class Project : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
     }
     // Update is called once per frame
-    void Update()
+
+    private void FixedUpdate()
     {
         rb.velocity = transform.forward * speed * Time.deltaTime;
+    }
+    void Update()
+    {
         if (!hasStartedT)
         {
             Debug.Log(t);

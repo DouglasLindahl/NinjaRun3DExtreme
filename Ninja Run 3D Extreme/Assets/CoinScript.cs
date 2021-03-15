@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
-    public float coinsCollected;
+    public static float coinsCollected;
+    AudioSource coinSound;
+    private void Awake()
+    {
+        coinSound = GameObject.Find("CoinSoundFX").GetComponent<AudioSource>();
+    }
+    private void Update()
+    {
+        print(coinsCollected);
+    }
     private void OnTriggerEnter(Collider other)
     {
         DestroyCoin();
@@ -13,5 +22,6 @@ public class CoinScript : MonoBehaviour
     {
         Destroy(gameObject);
         coinsCollected++;
+        coinSound.Play();
     }
 }

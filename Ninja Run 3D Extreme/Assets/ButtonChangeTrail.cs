@@ -12,7 +12,7 @@ public class ButtonChangeTrail : MonoBehaviour
         trailManager = GameObject.Find("SceneManager").GetComponent<TrailColorManager>();
     }
 
-    void changeTrailOnClick()
+    public void changeTrailOnClick()
     {
         trailManager.ChangeColor(trailManager.colors[colorIndex]);
     }

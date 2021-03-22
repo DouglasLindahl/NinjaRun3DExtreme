@@ -10,13 +10,14 @@ public class CoinScript : MonoBehaviour
     AudioSource coinSound;
     private void Awake()
     {
+        coinText = GameObject.Find("CoinText").GetComponent<Text>();
         coinSound = GameObject.Find("CoinSoundFX").GetComponent<AudioSource>();
         coinsCollected = PlayerPrefs.GetInt("CoinsCollected");
     }
     private void Update()
     {
-        coinText.text = coinsCollected + "";
         PlayerPrefs.SetInt("CoinsCollected", coinsCollected);
+        coinText.text = coinsCollected + "";
         print(coinsCollected);
     }
     private void OnTriggerEnter(Collider other)

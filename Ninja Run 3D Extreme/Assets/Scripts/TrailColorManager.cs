@@ -22,6 +22,7 @@ public class TrailColorManager : MonoBehaviour
 
     public void ChangeColor(Color selectedColor)
     {
+
         playerTrail.material.color = colors[0];
     }
 }

@@ -9,10 +9,12 @@ public class PauseMenu : MonoBehaviour
     public bool menuOpen = false;
     bool settingsOpen = false;
     bool levelSelectorOpen = false;
+    bool shopOpen = false;
     public GameObject wonMenu;
     public GameObject menu;
     public GameObject settings;
     public GameObject levelSelector;
+    public GameObject shop;
 
 
     private void Start()
@@ -48,6 +50,14 @@ public class PauseMenu : MonoBehaviour
         {
             levelSelector.SetActive(false);
         }
+        if(shopOpen)
+        {
+            shop.SetActive(true);
+        }
+        else
+        {
+            shop.SetActive(false);
+        }
     }
     public void ResumeGame()
     {
@@ -77,10 +87,18 @@ public class PauseMenu : MonoBehaviour
     {
         settingsOpen = true;
         levelSelectorOpen = false;
+        shopOpen = false;
     }
     public void OpenLevelSelector()
     {
-        levelSelectorOpen = true;
         settingsOpen = false;
+        levelSelectorOpen = true;
+        shopOpen = false;
+    }
+    public void OpenShop()
+    {
+        settingsOpen = false;
+        levelSelectorOpen = false;
+        shopOpen = true;
     }
 }

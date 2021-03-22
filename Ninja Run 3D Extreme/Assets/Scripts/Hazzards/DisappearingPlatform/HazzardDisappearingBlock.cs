@@ -11,6 +11,8 @@ public class HazzardDisappearingBlock : MonoBehaviour
     private bool canReduceCharge;
     private bool startDestruction;
 
+    AudioSource explosionSoundFX;
+
     //Variabler som används när objektet ändrar färg
     private bool changeColor;
     private Color startColor = Color.white;
@@ -36,6 +38,7 @@ public class HazzardDisappearingBlock : MonoBehaviour
         startDestruction = false;
         _propBlock = new MaterialPropertyBlock();
         _renderer = GetComponent<Renderer>();
+        explosionSoundFX = GameObject.Find("ExplosionSoundFX").GetComponent<AudioSource>();
     }
 
     //Sätter variabler och komponenter lika med X
@@ -100,6 +103,7 @@ public class HazzardDisappearingBlock : MonoBehaviour
     //Förstör objektet och skapar x antal kuber relativt till objektets storlek för att simulera en explosion där objektet delas upp
     public void Explode()
     {
+        explosionSoundFX.Play();
         gameObject.SetActive(false);
         for (int x = 0; x < cubesInRow; x++)
         {

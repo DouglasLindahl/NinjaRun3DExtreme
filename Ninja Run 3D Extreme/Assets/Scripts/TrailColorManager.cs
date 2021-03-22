@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class TrailColorManager : MonoBehaviour
 {
-    static public Color black, purple, red, green, blue, cyan, pink, silver;
+    public Color[] colors;
+    TrailRenderer playerTrail;
 
     static public Color currentTrailColor;
 
     private void Start()
     {
-        black = Color.black;
-        purple = new Color();
-        green = Color.green;
-        blue = Color.blue;
-        cyan = Color.cyan;
-        pink = new Color();
-        silver = Color.gray; 
+        colors[0] = Color.black;
+        colors[0] = new Color();
+        colors[0] = Color.green;
+        colors[0] = Color.blue;
+        colors[0] = Color.cyan;
+        colors[0] = new Color();
+        colors[0] = Color.gray; 
     }
 
-    void start()
+    void ChangeColor(Color selectedColor)
     {
-        currentTrailColor = black;
+        playerTrail.material.color = colors[0];
     }
 }

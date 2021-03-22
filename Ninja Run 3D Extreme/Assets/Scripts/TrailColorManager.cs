@@ -5,13 +5,16 @@ using UnityEngine;
 public class TrailColorManager : MonoBehaviour
 {
     public Color[] colors;
-    TrailRenderer playerTrail;
+    public TrailRenderer playerTrail;
 
-    public Color currentTrailColor;
+    void Awake()
+    {
+        playerTrail = GameObject.Find("Trail").GetComponent<TrailRenderer>();
+    }
 
     public void ChangeColor(Color selectedColor)
     {
-
-        playerTrail.material.color = colors[0];
+        Debug.Log(selectedColor);
+        playerTrail.material.color = new Color(selectedColor.r, selectedColor.g, selectedColor.b);
     }
 }

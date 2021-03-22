@@ -7,7 +7,10 @@ public class TrailColorManager : MonoBehaviour
     public Color[] colors;
     public TrailRenderer playerTrail;
 
-    public Color currentTrailColor;
+    void Awake()
+    {
+        playerTrail = GameObject.Find("Trail").GetComponent<TrailRenderer>();
+    }
 
     public void ChangeColor(Color selectedColor)
     {

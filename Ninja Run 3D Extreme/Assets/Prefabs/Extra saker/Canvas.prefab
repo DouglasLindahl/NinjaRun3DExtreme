@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1815170065066722642}
   - component: {fileID: 4302861387606405605}
   - component: {fileID: 8184596455011229545}
+  - component: {fileID: 1902064051072455131}
   m_Layer: 5
   m_Name: BuyGreen
   m_TagString: Untagged
@@ -119,17 +120,30 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9068962103317134803}
-        m_MethodName: ChooseLevelTwo
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1902064051072455131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62243427331745340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766991c7c9c2dd340a1312228faf521c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorIndex: 4
 --- !u!1 &189378493631029745
 GameObject:
   m_ObjectHideFlags: 0
@@ -3996,7 +4010,7 @@ GameObject:
   - component: {fileID: 3504504726601274098}
   - component: {fileID: 8710596132919606572}
   - component: {fileID: 1771466740088912639}
-  - component: {fileID: 4882704569823567641}
+  - component: {fileID: 3794193578638301416}
   m_Layer: 5
   m_Name: BuyWhite
   m_TagString: Untagged
@@ -4104,8 +4118,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9068962103317134803}
-        m_MethodName: ChooseLevelTwo
+      - m_Target: {fileID: 3794193578638301416}
+        m_MethodName: changeTrailOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4115,7 +4129,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4882704569823567641
+--- !u!114 &3794193578638301416
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4124,10 +4138,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1716861711597688730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c64e5a959b8bf248a9ec02b95653c88, type: 3}
+  m_Script: {fileID: 11500000, guid: 766991c7c9c2dd340a1312228faf521c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 0
+  colorIndex: 0
 --- !u!1 &2052543524173110518
 GameObject:
   m_ObjectHideFlags: 0
@@ -4140,6 +4154,7 @@ GameObject:
   - component: {fileID: 5186300110710095389}
   - component: {fileID: 3427561235082984657}
   - component: {fileID: 825257117946093788}
+  - component: {fileID: 6976474525124249430}
   m_Layer: 5
   m_Name: BuyLightBlue
   m_TagString: Untagged
@@ -4247,17 +4262,30 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9068962103317134803}
-        m_MethodName: ChooseLevelTwo
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6976474525124249430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052543524173110518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766991c7c9c2dd340a1312228faf521c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorIndex: 6
 --- !u!1 &2130700629973333187
 GameObject:
   m_ObjectHideFlags: 0
@@ -4270,6 +4298,7 @@ GameObject:
   - component: {fileID: 470242088129768015}
   - component: {fileID: 30877241589420520}
   - component: {fileID: 4266141848400007059}
+  - component: {fileID: 6918847040653683083}
   m_Layer: 5
   m_Name: BuyPurple
   m_TagString: Untagged
@@ -4377,17 +4406,30 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9068962103317134803}
-        m_MethodName: ChooseLevelTwo
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6918847040653683083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130700629973333187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766991c7c9c2dd340a1312228faf521c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorIndex: 5
 --- !u!1 &2242542494062840824
 GameObject:
   m_ObjectHideFlags: 0
@@ -5688,6 +5730,7 @@ GameObject:
   - component: {fileID: 4358276202021005759}
   - component: {fileID: 6045888075363998507}
   - component: {fileID: 7666767111187842355}
+  - component: {fileID: 458043039250026845}
   m_Layer: 5
   m_Name: BuyBlack
   m_TagString: Untagged
@@ -5795,8 +5838,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9068962103317134803}
-        m_MethodName: ChooseLevelTwo
+      - m_Target: {fileID: 458043039250026845}
+        m_MethodName: changeTrailOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5806,6 +5849,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &458043039250026845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5303480372749935287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766991c7c9c2dd340a1312228faf521c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorIndex: 8
 --- !u!1 &5330582983347259633
 GameObject:
   m_ObjectHideFlags: 0
@@ -5896,6 +5952,7 @@ GameObject:
   - component: {fileID: 488565416193067099}
   - component: {fileID: 6326447577247998974}
   - component: {fileID: 5214760253406789074}
+  - component: {fileID: 1892542511935871932}
   m_Layer: 5
   m_Name: BuySilver
   m_TagString: Untagged
@@ -6003,8 +6060,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9068962103317134803}
-        m_MethodName: ChooseLevelTwo
+      - m_Target: {fileID: 1892542511935871932}
+        m_MethodName: changeTrailOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6014,6 +6071,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1892542511935871932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5362001274091313570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766991c7c9c2dd340a1312228faf521c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorIndex: 1
 --- !u!1 &5635676941465879783
 GameObject:
   m_ObjectHideFlags: 0
@@ -6401,6 +6471,7 @@ GameObject:
   - component: {fileID: 129435896172723331}
   - component: {fileID: 1751910515816528753}
   - component: {fileID: 6511425798003191727}
+  - component: {fileID: 4258869263478099476}
   m_Layer: 5
   m_Name: BuyBlue
   m_TagString: Untagged
@@ -6508,8 +6579,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9068962103317134803}
-        m_MethodName: ChooseLevelTwo
+      - m_Target: {fileID: 4258869263478099476}
+        m_MethodName: changeTrailOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6519,6 +6590,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4258869263478099476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7073316303651953869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766991c7c9c2dd340a1312228faf521c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorIndex: 2
 --- !u!1 &7282632590087826221
 GameObject:
   m_ObjectHideFlags: 0
@@ -6531,6 +6615,7 @@ GameObject:
   - component: {fileID: 2643671569531397553}
   - component: {fileID: 6299980195976127344}
   - component: {fileID: 3177365818800977727}
+  - component: {fileID: 6773040591695020592}
   m_Layer: 5
   m_Name: BuyRed
   m_TagString: Untagged
@@ -6638,17 +6723,30 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9068962103317134803}
-        m_MethodName: ChooseLevelTwo
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6773040591695020592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7282632590087826221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766991c7c9c2dd340a1312228faf521c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorIndex: 3
 --- !u!1 &7942184743170029039
 GameObject:
   m_ObjectHideFlags: 0
@@ -6661,6 +6759,7 @@ GameObject:
   - component: {fileID: 2607426327153847113}
   - component: {fileID: 7790703180420995199}
   - component: {fileID: 6632804439370684245}
+  - component: {fileID: 6567325071272401157}
   m_Layer: 5
   m_Name: BuyPink
   m_TagString: Untagged
@@ -6768,17 +6867,30 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9068962103317134803}
-        m_MethodName: ChooseLevelTwo
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6567325071272401157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7942184743170029039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766991c7c9c2dd340a1312228faf521c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorIndex: 7
 --- !u!1 &7948757757684183742
 GameObject:
   m_ObjectHideFlags: 0
@@ -7698,6 +7810,7 @@ GameObject:
   - component: {fileID: 9068962103317134802}
   - component: {fileID: 5734661685966530157}
   - component: {fileID: 8949083794526313557}
+  - component: {fileID: 7145585089375647702}
   m_Layer: 0
   m_Name: Scenemanager
   m_TagString: SceneManager
@@ -7791,6 +7904,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 2942705482875734693}
+--- !u!114 &7145585089375647702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9068962103317134798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c342a629b0b54c1468190e42e1b5c394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 0}
+  - {r: 0.86274517, g: 0.86274517, b: 0.86274517, a: 0}
+  - {r: 0.13333334, g: 0, b: 0.9607844, a: 0}
+  - {r: 0.9215687, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0.9215687, b: 0.011764707, a: 0}
+  - {r: 0.7254902, g: 0, b: 0.9607844, a: 0}
+  - {r: 0, g: 0.8588236, b: 0.9607844, a: 0}
+  - {r: 0.9607844, g: 0, b: 0.76470596, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  currentTrailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &9139860203198965824
 GameObject:
   m_ObjectHideFlags: 0

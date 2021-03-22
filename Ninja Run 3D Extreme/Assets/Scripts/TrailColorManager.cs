@@ -7,20 +7,20 @@ public class TrailColorManager : MonoBehaviour
     public Color[] colors;
     TrailRenderer playerTrail;
 
-    static public Color currentTrailColor;
+    public Color currentTrailColor;
 
     private void Start()
     {
         colors[0] = Color.black;
-        colors[0] = new Color();
-        colors[0] = Color.green;
-        colors[0] = Color.blue;
-        colors[0] = Color.cyan;
-        colors[0] = new Color();
-        colors[0] = Color.gray; 
+        colors[1] = new Color();
+        colors[2] = Color.green;
+        colors[3] = Color.blue;
+        colors[4] = Color.cyan;
+        colors[5] = new Color();
+        colors[6] = Color.gray; 
     }
 
-    void ChangeColor(Color selectedColor)
+    public void ChangeColor(Color selectedColor)
     {
         playerTrail.material.color = colors[0];
     }

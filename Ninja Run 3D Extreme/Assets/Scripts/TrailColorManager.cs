@@ -14,7 +14,8 @@ public class TrailColorManager : MonoBehaviour
 
     public void ChangeColor(Color selectedColor)
     {
-        Debug.Log(selectedColor);
-        playerTrail.material.color = new Color(selectedColor.r, selectedColor.g, selectedColor.b);
+        Material newMaterial = new Material(Shader.Find("Specular"));
+        newMaterial.color = selectedColor;
+        playerTrail.material = newMaterial;
     }
 }

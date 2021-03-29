@@ -18,7 +18,6 @@ public class CoinScript : MonoBehaviour
     {
         PlayerPrefs.SetInt("CoinsCollected", coinsCollected);
         coinText.text = coinsCollected + "";
-        print(coinsCollected);
     }
     private void OnTriggerEnter(Collider other)
     {

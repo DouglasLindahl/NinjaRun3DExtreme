@@ -21,7 +21,10 @@ public class CoinScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        DestroyCoin();
+        if (other.tag == "Player")
+        {
+            DestroyCoin();
+        }
     }
     void DestroyCoin()
     {

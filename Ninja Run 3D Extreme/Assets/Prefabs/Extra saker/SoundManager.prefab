@@ -315,6 +315,7 @@ MonoBehaviour:
   deathSound: {fileID: 948719049045872667}
   victorySound: {fileID: 948719049700024359}
   coinSound: {fileID: 4425294649194348871}
+  explosionSound: {fileID: 1846433492793943014}
 --- !u!114 &5711210752771177833
 MonoBehaviour:
   m_ObjectHideFlags: 0

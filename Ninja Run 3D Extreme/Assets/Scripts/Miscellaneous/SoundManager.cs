@@ -20,6 +20,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource deathSound;
     public AudioSource victorySound;
     public AudioSource coinSound;
+    public AudioSource explosionSound;
 
     private void Awake()
     {
@@ -54,5 +55,6 @@ public class SoundManager : MonoBehaviour
         deathSound.volume = soundEffectVolume;
         victorySound.volume = soundEffectVolume;
         coinSound.volume = soundEffectVolume;
+        explosionSound.volume = soundEffectVolume;
     }   
 }

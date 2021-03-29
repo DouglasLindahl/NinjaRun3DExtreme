@@ -88,9 +88,6 @@ public class ThirdPersonMovement : MonoBehaviour
             Destroy(other.gameObject);
             triggerPowerup = true;
 
-            playerTrail.startColor = orangeColor;
-            playerTrail.endColor = Color.yellow;
-
             playerTrail.time = 0.7f;
             playerTrail.startWidth = 0.6f;
         }
